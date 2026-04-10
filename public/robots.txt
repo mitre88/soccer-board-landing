@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://soccer-board-landing.vercel.app/sitemap.xml

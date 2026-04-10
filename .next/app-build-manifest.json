@@ -1,0 +1,51 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-68f22649503f8e75.js",
+      "static/chunks/4bd1b696-085296ec7bcc1aa4.js",
+      "static/chunks/517-d6780df3aecf551f.js",
+      "static/chunks/main-app-251b0728ef629aa9.js",
+      "static/chunks/app/_not-found/page-d3f3189736ed81f1.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-68f22649503f8e75.js",
+      "static/chunks/4bd1b696-085296ec7bcc1aa4.js",
+      "static/chunks/517-d6780df3aecf551f.js",
+      "static/chunks/main-app-251b0728ef629aa9.js",
+      "static/css/884ed4316acdc654.css",
+      "static/chunks/app/layout-5483b21d1782329c.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-68f22649503f8e75.js",
+      "static/chunks/4bd1b696-085296ec7bcc1aa4.js",
+      "static/chunks/517-d6780df3aecf551f.js",
+      "static/chunks/main-app-251b0728ef629aa9.js",
+      "static/chunks/565-2ad424b84ea8846a.js",
+      "static/chunks/app/page-30776a8be33bd4ee.js"
+    ],
+    "/terms-of-service/page": [
+      "static/chunks/webpack-68f22649503f8e75.js",
+      "static/chunks/4bd1b696-085296ec7bcc1aa4.js",
+      "static/chunks/517-d6780df3aecf551f.js",
+      "static/chunks/main-app-251b0728ef629aa9.js",
+      "static/chunks/173-3048be2d38b9f0b0.js",
+      "static/chunks/app/terms-of-service/page-fb0a80cab2f100e7.js"
+    ],
+    "/privacy-policy/page": [
+      "static/chunks/webpack-68f22649503f8e75.js",
+      "static/chunks/4bd1b696-085296ec7bcc1aa4.js",
+      "static/chunks/517-d6780df3aecf551f.js",
+      "static/chunks/main-app-251b0728ef629aa9.js",
+      "static/chunks/173-3048be2d38b9f0b0.js",
+      "static/chunks/app/privacy-policy/page-78d215cc46253dd1.js"
+    ],
+    "/support/page": [
+      "static/chunks/webpack-68f22649503f8e75.js",
+      "static/chunks/4bd1b696-085296ec7bcc1aa4.js",
+      "static/chunks/517-d6780df3aecf551f.js",
+      "static/chunks/main-app-251b0728ef629aa9.js",
+      "static/chunks/173-3048be2d38b9f0b0.js",
+      "static/chunks/app/support/page-42907954c99cab50.js"
+    ]
+  }
+}
