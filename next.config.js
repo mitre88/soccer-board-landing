@@ -9,6 +9,8 @@ const securityHeaders = [
 const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  // app/global-not-found.tsx: one branded 404 for both route groups (each has its own root layout).
+  experimental: { globalNotFound: true },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 480, 640, 768, 1080, 1280, 1600],
