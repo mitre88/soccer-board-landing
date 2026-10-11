@@ -50,7 +50,7 @@ const en = {
       "The terms for using SoccerBoard Tactics AI, a one-time purchase on the App Store with no subscriptions and no in-app purchases.",
     supportTitle: "Support — SoccerBoard Tactics AI",
     supportDescription:
-      "Help with SoccerBoard Tactics AI: requirements, the AI coach, iPhone Duo, your data, and how to contact us.",
+      "Help with SoccerBoard Tactics AI: requirements, the AI coach, your data and how to contact us. It also covers iPhone Duo.",
   },
   a11y: {
     skip: "Skip to content",
@@ -219,7 +219,7 @@ const es: Dictionary = {
       "Los términos de uso de SoccerBoard Tactics AI, una compra única en el App Store sin suscripciones ni compras dentro de la app.",
     supportTitle: "Soporte — SoccerBoard Tactics AI",
     supportDescription:
-      "Ayuda con SoccerBoard Tactics AI: requisitos, el entrenador con IA, iPhone Duo, tus datos y cómo contactarnos.",
+      "Ayuda con SoccerBoard Tactics AI: requisitos, el entrenador con IA, tus datos y cómo contactarnos. También cubre iPhone Duo.",
   },
   a11y: {
     skip: "Saltar al contenido",
