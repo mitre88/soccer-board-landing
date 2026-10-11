@@ -19,9 +19,12 @@ export function SiteHeader({ locale, alternatePath }: { locale: Locale; alternat
   return (
     <header className="navbar-glass sticky top-0 z-40">
       <div className="container-x relative flex h-16 items-center gap-4">
-        <a href={`${home}#top`} aria-label={d.a11y.home} className="flex shrink-0 items-center gap-2.5 rounded-lg">
-          <Image src="/brand/app-icon.png" alt="" width={32} height={32} className="rounded-[7px]" />
-          <span className="text-[0.9375rem] font-semibold tracking-[-0.01em] text-ink">{APP_NAME}</span>
+        {/* At 320 px (400 % zoom) the wordmark gives way to the icon; the link keeps its accessible name. */}
+        <a href={`${home}#top`} aria-label={d.a11y.home} className="flex min-w-0 items-center gap-2.5 rounded-lg">
+          <Image src="/brand/app-icon.png" alt="" width={32} height={32} className="shrink-0 rounded-[7px]" />
+          <span className="truncate text-[0.9375rem] font-semibold tracking-[-0.01em] text-ink max-[359px]:sr-only">
+            {APP_NAME}
+          </span>
         </a>
 
         <nav aria-label={d.a11y.mainNav} className="ml-auto hidden xl:block">
