@@ -87,11 +87,36 @@ export function Duo({ locale, figures }: { locale: Locale; figures: Figure[] }) 
   );
 }
 
-/** Text-only panel, paired with Performance while no separate iPhone Duo capture exists. */
-export function DuoPanel({ locale }: { locale: Locale }) {
+/**
+ * Text-only section, used while no iPhone Duo capture exists. It keeps the feature's own band and
+ * heading (more weight than Performance) and lists what each display does.
+ */
+export function DuoTextSection({ locale }: { locale: Locale }) {
+  const d = t(locale).duo;
   return (
-    <section id="duo" aria-labelledby="duo-title" className="flex flex-col rounded-xl bg-surface p-8 md:p-10">
-      <DuoText locale={locale} />
+    <section id="duo" aria-labelledby="duo-title" className="py-16 md:py-24">
+      <div className="container-x grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+        <div>
+          <NewChip locale={locale} />
+          <h2 id="duo-title" className="t-h2 mt-5 max-w-[16ch]">
+            {d.title}
+          </h2>
+        </div>
+        <div className="lg:pt-14">
+          <dl className="border-t border-hairline">
+            {d.rows.map((row) => (
+              <div
+                key={row.label}
+                className="grid gap-1 border-b border-hairline py-5 sm:grid-cols-[11rem_minmax(0,1fr)] sm:items-baseline sm:gap-6"
+              >
+                <dt className="text-[0.8125rem] font-semibold uppercase tracking-[0.09em] text-ink-2">{row.label}</dt>
+                <dd className="t-lead text-ink">{row.text}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="t-body mt-6 font-semibold">{d.close}</p>
+        </div>
+      </div>
     </section>
   );
 }

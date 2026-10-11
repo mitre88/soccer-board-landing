@@ -10,11 +10,11 @@ import {
 import { Board } from "./Board";
 import { Coach } from "./Coach";
 import { Download } from "./Download";
-import { Duo, DuoPanel, duoFigures } from "./Duo";
+import { Duo, DuoTextSection, duoFigures } from "./Duo";
 import { Faq } from "./Faq";
 import { Formats } from "./Formats";
 import { Hero } from "./Hero";
-import { Performance, PerformancePanel } from "./Performance";
+import { Performance } from "./Performance";
 import { WhatsNew } from "./WhatsNew";
 
 function structuredData(locale: Locale) {
@@ -44,19 +44,8 @@ export function HomePage({ locale }: { locale: Locale }) {
       <Hero locale={locale} />
       <Coach locale={locale} />
       <Board locale={locale} />
-      {figures.length ? (
-        <>
-          <Duo locale={locale} figures={figures} />
-          <Performance locale={locale} />
-        </>
-      ) : (
-        <div className="py-16 md:py-24">
-          <div className="container-x grid gap-4 md:grid-cols-2">
-            <DuoPanel locale={locale} />
-            <PerformancePanel locale={locale} />
-          </div>
-        </div>
-      )}
+      {figures.length ? <Duo locale={locale} figures={figures} /> : <DuoTextSection locale={locale} />}
+      <Performance locale={locale} />
       <Formats locale={locale} />
       <WhatsNew locale={locale} />
       <Faq locale={locale} />

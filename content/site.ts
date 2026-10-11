@@ -120,6 +120,10 @@ const en = {
     captionClosed: "A compact board on the outer display.",
     captionOpen: "The coach desk, with the board and the coach panel side by side.",
     captionHalf: "The board and the coach panel stay side by side.",
+    rows: [
+      { label: "Inner display", text: "The board and the coach panel sit side by side." },
+      { label: "Outer display", text: "You get a compact board." },
+    ],
     close: "Fold or unfold and keep working.",
   },
   performance: {
@@ -289,6 +293,10 @@ const es: Dictionary = {
     captionClosed: "Pizarra compacta en la pantalla exterior.",
     captionOpen: "La mesa del entrenador, con la pizarra y el panel del entrenador lado a lado.",
     captionHalf: "La pizarra y el panel del entrenador siguen lado a lado.",
+    rows: [
+      { label: "Pantalla interior", text: "La pizarra y el panel del entrenador van lado a lado." },
+      { label: "Pantalla exterior", text: "Tienes una pizarra compacta." },
+    ],
     close: "Pliega o abre tu iPhone Duo y sigue trabajando.",
   },
   performance: {
