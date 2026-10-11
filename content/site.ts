@@ -175,7 +175,7 @@ const en = {
       },
       {
         q: "Which languages does the AI coach support?",
-        a: "The on-device AI needs a supported language. In other languages, you get rule-based suggestions. The {store} lists the app’s languages.",
+        a: "The on-device AI needs a supported language. In other languages, you get rule-based suggestions. The {store} lists the app’s interface languages; the on-device AI may not support all of them.",
       },
       { q: "Is the AI coach private?", a: "Yes. It runs on your iPhone, privately and offline." },
       {
@@ -344,7 +344,7 @@ const es: Dictionary = {
       },
       {
         q: "¿En qué idiomas funciona el entrenador con IA?",
-        a: "La IA necesita un idioma compatible. En otros idiomas recibes sugerencias basadas en reglas. La {store} muestra los idiomas de la app.",
+        a: "La IA necesita un idioma compatible. En otros idiomas recibes sugerencias basadas en reglas. La {store} muestra los idiomas de la interfaz; la IA en el dispositivo puede no estar disponible en todos.",
       },
       {
         q: "¿El entrenador con IA es privado?",
