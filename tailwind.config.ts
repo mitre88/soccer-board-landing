@@ -23,6 +23,7 @@ const config: Config = {
         canvas: token("canvas"),
         surface: token("surface"),
         control: token("control-fill"),
+        thumb: token("thumb"),
         hairline: token("hairline"),
         ink: {
           DEFAULT: token("ink"),

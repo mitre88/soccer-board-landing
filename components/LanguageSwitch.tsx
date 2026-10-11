@@ -30,7 +30,7 @@ export function LanguageSwitch({
     <div role="group" aria-label={groupLabel} className="inline-flex w-fit items-center gap-0.5 rounded-full bg-control p-1">
       {LANGUAGES.map((language) =>
         language.code === locale ? (
-          <span key={language.code} aria-current="true" lang={language.lang} className={`${item} bg-surface text-ink`}>
+          <span key={language.code} aria-current="true" lang={language.lang} className={`${item} bg-thumb text-ink`}>
             {language.label}
             <span className="sr-only"> {language.name}</span>
           </span>
