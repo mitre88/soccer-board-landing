@@ -3,6 +3,7 @@ import { resolveSlot } from "@/content/screens";
 import { NewChip } from "../Bits";
 import { ThemedPicture } from "../ThemedPicture";
 
+// Landscape close-ups are capped at 480 px so a ~900 px capture stays sharp on 2x screens.
 export function Board({ locale }: { locale: Locale }) {
   const b = t(locale).board;
   const shot = resolveSlot("board", locale);
@@ -12,7 +13,11 @@ export function Board({ locale }: { locale: Locale }) {
     <section id="board" aria-labelledby="board-title" className="py-16 md:py-24">
       <div
         className={`container-x grid items-center gap-10 ${
-          shot ? "md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-16" : ""
+          shot
+            ? portrait
+              ? "md:grid-cols-[minmax(0,1fr)_auto] md:gap-16"
+              : "md:grid-cols-[minmax(0,1fr)_minmax(0,480px)] md:gap-16"
+            : ""
         }`}
       >
         <div className="max-w-[34rem]">
@@ -27,7 +32,7 @@ export function Board({ locale }: { locale: Locale }) {
             light={shot.light}
             dark={shot.dark}
             alt={shot.alt}
-            sizes={portrait ? "(min-width: 768px) 360px, 80vw" : "(min-width: 1200px) 680px, (min-width: 768px) 56vw, 92vw"}
+            sizes={portrait ? "(min-width: 768px) 360px, 80vw" : "(min-width: 1100px) 480px, (min-width: 768px) 44vw, 92vw"}
             className={
               portrait
                 ? "capture mx-auto h-auto w-[min(80vw,360px)] rounded-[28px]"
