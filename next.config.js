@@ -23,6 +23,13 @@ const nextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  // Short privacy paths (the old listing used /privacy) land on the policy in the same language.
+  async redirects() {
+    return [
+      { source: "/privacy", destination: "/privacy-policy", permanent: true },
+      { source: "/es/privacy", destination: "/es/privacy-policy", permanent: true },
+    ];
+  },
 };
 
 module.exports = nextConfig;
