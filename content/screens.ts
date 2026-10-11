@@ -1,5 +1,6 @@
 // Real app captures only. Files in public/screens are discovered at build time; a slot whose
 // capture is missing renders nothing (never a placeholder or a drawn mock). See docs/screens.md.
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import type { Locale } from "./site";
@@ -117,8 +118,7 @@ export type SlotId = keyof typeof SLOTS;
 const SCREENS_DIR = path.join(process.cwd(), "public", "screens");
 const EXTENSIONS = [".webp", ".png", ".jpg", ".jpeg", ".avif"];
 
-function readSize(file: string): { width: number; height: number } | null {
-  const b = fs.readFileSync(file);
+function readSize(b: Buffer): { width: number; height: number } | null {
   // PNG: IHDR width/height at bytes 16..24
   if (b.length > 24 && b.readUInt32BE(0) === 0x89504e47) {
     return { width: b.readUInt32BE(16), height: b.readUInt32BE(20) };
@@ -165,9 +165,13 @@ function screenIndex(): Map<string, ScreenFile> {
       if (path.extname(file).toLowerCase() !== ext) continue;
       const base = file.slice(0, -ext.length);
       if (found.has(base)) continue;
-      const size = readSize(path.join(SCREENS_DIR, file));
+      const bytes = fs.readFileSync(path.join(SCREENS_DIR, file));
+      const size = readSize(bytes);
       if (size && size.width > 0 && size.height > 0) {
-        found.set(base, { src: `/screens/${file}`, ...size });
+        // The content hash in the URL lets the image optimizer cache for a long time: a new capture
+        // under the same file name gets a new URL.
+        const version = createHash("sha256").update(bytes).digest("hex").slice(0, 10);
+        found.set(base, { src: `/screens/${file}?v=${version}`, ...size });
       }
     }
   }

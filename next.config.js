@@ -13,6 +13,10 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [360, 480, 640, 768, 1080, 1280, 1600],
     imageSizes: [32, 64, 96, 128, 192, 256],
+    qualities: [75, 85],
+    // Capture URLs carry a content hash (content/screens.ts), so optimized copies can live 31 days.
+    minimumCacheTTL: 2678400,
+    localPatterns: [{ pathname: "/screens/**" }, { pathname: "/brand/**" }],
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

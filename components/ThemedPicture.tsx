@@ -26,6 +26,9 @@ export function ThemedPicture({
     sizes,
     quality: 85,
     priority,
+    // priority only drops lazy loading; the LCP capture also needs an explicit fetch priority.
+    // It applies to whichever <source> the browser picks.
+    fetchPriority: priority ? "high" : undefined,
   });
 
   if (!dark) {
