@@ -13,7 +13,7 @@ export function Faq({ locale }: { locale: Locale }) {
         <div className="border-t border-hairline">
           {f.items.map((item) => (
             <details key={item.q} className="border-b border-hairline">
-              <summary className="flex min-h-14 cursor-pointer items-center justify-between gap-6 py-4 text-[1.125rem] font-semibold leading-snug">
+              <summary className="flex min-h-14 cursor-pointer items-center justify-between gap-6 py-4 text-[1.125rem] font-semibold leading-snug transition-colors duration-150 hover:text-tactic-ink">
                 {item.q}
                 <ChevronDownIcon className="faq-chevron h-5 w-5 shrink-0 text-ink-3" />
               </summary>
