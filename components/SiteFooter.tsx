@@ -26,7 +26,7 @@ export function SiteFooter({ locale, alternatePath }: { locale: Locale; alternat
           </p>
           <p className="t-note">{d.footer.copyright}</p>
         </div>
-        <div className="flex flex-col gap-5 md:items-end">
+        <div className="flex flex-col items-start gap-5 md:items-end">
           <nav aria-label={d.a11y.legalNav}>
             <ul role="list" className="flex flex-wrap gap-x-6 gap-y-2">
               {legal.map((item) => (
@@ -41,7 +41,7 @@ export function SiteFooter({ locale, alternatePath }: { locale: Locale; alternat
               ))}
             </ul>
           </nav>
-          <LanguageSwitch locale={locale} alternatePath={alternatePath} groupLabel={d.a11y.language} />
+          <LanguageSwitch locale={locale} alternatePath={alternatePath} groupLabel={d.a11y.language} size="responsive" />
         </div>
       </div>
     </footer>

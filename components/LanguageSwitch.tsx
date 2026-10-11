@@ -5,23 +5,29 @@ const LANGUAGES = [
   { code: "es", label: "ES", name: "Español", lang: "es-MX" },
 ] as const;
 
+const SIZES = {
+  small: "min-h-8 px-3 text-[0.8125rem]",
+  large: "min-h-11 min-w-14 px-4 text-[0.9375rem]",
+  // 44 px segments on touch-size screens, compact from 768 px up.
+  responsive: "min-h-11 min-w-14 px-4 text-[0.9375rem] md:min-h-8 md:min-w-0 md:px-3 md:text-[0.8125rem]",
+} as const;
+
 // EN | ES segmented switch. The current language is marked, the other one links to the same page.
+// w-fit keeps it at its own width inside column layouts.
 export function LanguageSwitch({
   locale,
   alternatePath,
   groupLabel,
-  large = false,
+  size = "small",
 }: {
   locale: Locale;
   alternatePath: string;
   groupLabel: string;
-  large?: boolean;
+  size?: keyof typeof SIZES;
 }) {
-  const item = large
-    ? "inline-flex min-h-11 min-w-14 items-center justify-center rounded-full px-4 text-[0.9375rem] font-semibold"
-    : "inline-flex min-h-8 items-center justify-center rounded-full px-3 text-[0.8125rem] font-semibold";
+  const item = `inline-flex items-center justify-center rounded-full font-semibold ${SIZES[size]}`;
   return (
-    <div role="group" aria-label={groupLabel} className="inline-flex items-center gap-0.5 rounded-full bg-control p-1">
+    <div role="group" aria-label={groupLabel} className="inline-flex w-fit items-center gap-0.5 rounded-full bg-control p-1">
       {LANGUAGES.map((language) =>
         language.code === locale ? (
           <span key={language.code} aria-current="true" lang={language.lang} className={`${item} bg-surface text-ink`}>

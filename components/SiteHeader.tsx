@@ -63,7 +63,7 @@ export function SiteHeader({ locale, alternatePath }: { locale: Locale; alternat
                 </ul>
               </nav>
               <div className="mt-4 flex flex-wrap items-center justify-between gap-4 px-2">
-                <LanguageSwitch locale={locale} alternatePath={alternatePath} groupLabel={d.a11y.language} large />
+                <LanguageSwitch locale={locale} alternatePath={alternatePath} groupLabel={d.a11y.language} size="large" />
                 <AppStoreBadge locale={locale} height={44} />
               </div>
             </div>
