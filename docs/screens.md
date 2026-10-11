@@ -1,6 +1,7 @@
-# public/screens — real app captures only
+# Captures in public/screens — real app captures only
 
-The site reads this folder at build time (`content/screens.ts`). A slot whose file is missing
+These notes live outside `public/` so they are never served. The site reads `public/screens` at
+build time (`content/screens.ts`). A slot whose file is missing
 renders **nothing**: no placeholder, no drawn pitch, no mock UI. Drop a real capture in, rebuild,
 and it appears.
 

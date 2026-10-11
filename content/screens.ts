@@ -1,5 +1,5 @@
 // Real app captures only. Files in public/screens are discovered at build time; a slot whose
-// capture is missing renders nothing (never a placeholder or a drawn mock). See public/screens/README.md.
+// capture is missing renders nothing (never a placeholder or a drawn mock). See docs/screens.md.
 import fs from "node:fs";
 import path from "node:path";
 import type { Locale } from "./site";
