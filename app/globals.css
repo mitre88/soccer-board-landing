@@ -2,198 +2,411 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 10, 10, 10;
-  --background-end-rgb: 26, 26, 46;
-}
+/*
+  Floodlit tokens, copied from SoccerBoard-2.0/Brand/palette.json (OKLCH "L C H").
+  Light = day match, dark = night match under floodlights.
+  The page follows the system appearance until the visitor picks one with the toggle
+  (stored as data-theme on <html>). Increased contrast uses the lightHC / darkHC values.
+*/
+@layer base {
+  :root {
+    color-scheme: light dark;
+    --canvas: 0.955 0.006 165;
+    --surface: 0.993 0.003 165;
+    --control-fill: 0.925 0.007 165;
+    --hairline: 0.860 0.008 165;
+    --ink: 0.210 0.014 165;
+    --ink-2: 0.420 0.014 165;
+    --ink-3: 0.520 0.012 165;
+    --tactic: 0.500 0.175 256;
+    --on-tactic: 1.000 0.000 0;
+    --tactic-ink: 0.500 0.175 256;
+    --suggestion-ink: 0.510 0.115 62;
+    --floodlight: 0.985 0.020 95;
+    --token-shadow: 0.160 0.030 150;
+    /* scene: no light pool by day, key shadow 18 % */
+    --pool: 0;
+    --key: 0.18;
+    --canvas-hex: #edf1ef;
+    --gutter: 16px;
+  }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  :root[data-theme="light"] {
+    color-scheme: light;
+  }
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --canvas: 0.175 0.010 165;
+    --surface: 0.228 0.011 165;
+    --control-fill: 0.300 0.012 165;
+    --hairline: 0.355 0.012 165;
+    --ink: 0.965 0.005 165;
+    --ink-2: 0.760 0.010 165;
+    --ink-3: 0.660 0.010 165;
+    --tactic: 0.545 0.170 256;
+    --on-tactic: 1.000 0.000 0;
+    --tactic-ink: 0.780 0.115 250;
+    --suggestion-ink: 0.820 0.130 74;
+    --floodlight: 0.970 0.030 92;
+    --token-shadow: 0.070 0.020 150;
+    --pool: 0.06;
+    --key: 0.45;
+    --canvas-hex: #0c120f;
+  }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: #0A0A0A;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --canvas: 0.175 0.010 165;
+      --surface: 0.228 0.011 165;
+      --control-fill: 0.300 0.012 165;
+      --hairline: 0.355 0.012 165;
+      --ink: 0.965 0.005 165;
+      --ink-2: 0.760 0.010 165;
+      --ink-3: 0.660 0.010 165;
+      --tactic: 0.545 0.170 256;
+      --on-tactic: 1.000 0.000 0;
+      --tactic-ink: 0.780 0.115 250;
+      --suggestion-ink: 0.820 0.130 74;
+      --floodlight: 0.970 0.030 92;
+      --token-shadow: 0.070 0.020 150;
+      --pool: 0.06;
+      --key: 0.45;
+      --canvas-hex: #0c120f;
+    }
+  }
 
-::selection {
-  background: rgba(33, 150, 243, 0.3);
-  color: white;
-}
+  @media (prefers-contrast: more) {
+    :root {
+      --canvas: 0.972 0.004 165;
+      --surface: 1.000 0.000 0;
+      --control-fill: 0.890 0.008 165;
+      --hairline: 0.620 0.010 165;
+      --ink: 0.120 0.010 165;
+      --ink-2: 0.300 0.012 165;
+      --ink-3: 0.400 0.012 165;
+      --tactic: 0.430 0.170 258;
+      --tactic-ink: 0.420 0.170 258;
+      --suggestion-ink: 0.430 0.100 60;
+      --token-shadow: 0.100 0.020 150;
+      --canvas-hex: #f3f7f5;
+    }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
+    :root[data-theme="dark"] {
+      --canvas: 0.115 0.006 165;
+      --surface: 0.175 0.008 165;
+      --control-fill: 0.340 0.012 165;
+      --hairline: 0.580 0.010 165;
+      --ink: 1.000 0.000 0;
+      --ink-2: 0.870 0.008 165;
+      --ink-3: 0.800 0.008 165;
+      --tactic: 0.520 0.170 258;
+      --tactic-ink: 0.860 0.090 250;
+      --suggestion-ink: 0.880 0.120 78;
+      --token-shadow: 0.030 0.010 150;
+      --canvas-hex: #040605;
+    }
+  }
 
-::-webkit-scrollbar-track {
-  background: #0A0A0A;
-}
+  @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --canvas: 0.115 0.006 165;
+      --surface: 0.175 0.008 165;
+      --control-fill: 0.340 0.012 165;
+      --hairline: 0.580 0.010 165;
+      --ink: 1.000 0.000 0;
+      --ink-2: 0.870 0.008 165;
+      --ink-3: 0.800 0.008 165;
+      --tactic: 0.520 0.170 258;
+      --tactic-ink: 0.860 0.090 250;
+      --suggestion-ink: 0.880 0.120 78;
+      --token-shadow: 0.030 0.010 150;
+      --canvas-hex: #040605;
+    }
+  }
 
-::-webkit-scrollbar-thumb {
-  background: #2A2A3E;
-  border-radius: 3px;
-}
+  @media (min-width: 768px) {
+    :root {
+      --gutter: 24px;
+    }
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #2196F3;
-}
+  @media (min-width: 1200px) {
+    :root {
+      --gutter: 32px;
+    }
+  }
 
-/* Pitch SVG animations */
-.pitch-line {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: drawLine 2.5s ease-in-out forwards;
-}
+  html {
+    background-color: var(--canvas-hex);
+    background-color: oklch(var(--canvas));
+    color: oklch(var(--ink));
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 88px;
+  }
 
-.pitch-line-delay-1 { animation-delay: 0.3s; }
-.pitch-line-delay-2 { animation-delay: 0.6s; }
-.pitch-line-delay-3 { animation-delay: 0.9s; }
-.pitch-line-delay-4 { animation-delay: 1.2s; }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
 
-@keyframes drawLine {
-  to {
-    stroke-dashoffset: 0;
+  body {
+    min-height: 100vh;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-synthesis-weight: none;
+  }
+
+  ::selection {
+    background-color: oklch(var(--tactic) / 0.22);
+  }
+
+  :focus-visible {
+    outline: 2px solid oklch(var(--tactic-ink));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
   }
 }
 
-/* Player dot animations */
-.player-dot {
-  animation: playerAppear 0.4s ease-out forwards;
-  opacity: 0;
-}
-
-@keyframes playerAppear {
-  from {
-    opacity: 0;
-    transform: scale(0);
-    transform-origin: center;
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: calc(1200px + 2 * var(--gutter));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .t-h1 {
+    font-weight: 800;
+    font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 24ch;
+    text-wrap: balance;
+  }
+
+  .t-h2 {
+    font-weight: 700;
+    font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.625rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .t-h3 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+  }
+
+  .t-lead {
+    font-size: clamp(1.125rem, 1rem + 0.5vw, 1.3125rem);
+    line-height: 1.45;
+    color: oklch(var(--ink-2));
+    text-wrap: pretty;
+  }
+
+  .t-body {
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    max-width: 65ch;
+    text-wrap: pretty;
+  }
+
+  .t-note {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: oklch(var(--ink-2));
+    text-wrap: pretty;
+  }
+
+  /* Eyebrow chip: Ink on ControlFill, uppercase, tracked. */
+  .t-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    background-color: oklch(var(--control-fill));
+    color: oklch(var(--ink));
+    padding: 6px 12px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  /* Same capsule in sentence case (hero badge). */
+  .t-chip-plain {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 9999px;
+    background-color: oklch(var(--control-fill));
+    color: oklch(var(--ink));
+    padding: 6px 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  /* Kit numerals: heavy, condensed where the system font has a width axis, tabular. */
+  .kit {
+    font-weight: 800;
+    font-stretch: condensed;
+    font-variant-numeric: tabular-nums;
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+  }
+
+  .t-link {
+    color: oklch(var(--tactic-ink));
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .t-link:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* The only shadow on a section: the main capture, one light from the top-leading corner. */
+  .capture {
+    box-shadow:
+      0 1px 2px oklch(0 0 0 / 0.08),
+      0 12px 22px oklch(var(--token-shadow) / var(--key));
+  }
+
+  /* Night match: one warm floodlight pool from the hero's top-leading corner. Nothing by day. */
+  .floodlit {
+    background-image: radial-gradient(
+      circle max(55vw, 60svh) at 0 0,
+      oklch(var(--floodlight) / var(--pool)),
+      oklch(var(--floodlight) / 0)
+    );
+  }
+
+  /* Only glass on the page: the sticky navigation bar. */
+  .navbar-glass {
+    background-color: oklch(var(--canvas) / 0.82);
+    -webkit-backdrop-filter: saturate(1.4) blur(16px);
+    backdrop-filter: saturate(1.4) blur(16px);
+  }
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .navbar-glass {
+      background-color: oklch(var(--canvas) / 0.97);
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .navbar-glass {
+      background-color: oklch(var(--canvas));
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+
+  .skip-link {
+    position: absolute;
+    left: var(--gutter);
+    top: -200px;
+    z-index: 100;
+    border-radius: 9999px;
+    background-color: oklch(var(--tactic));
+    color: oklch(var(--on-tactic));
+    padding: 10px 18px;
+    font-weight: 600;
+  }
+
+  .skip-link:focus {
+    top: 12px;
+  }
+
+  .faq-chevron {
+    transition: transform 200ms ease;
+  }
+
+  details[open] > summary .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-chevron {
+      transition: none;
+    }
   }
 }
 
-.player-dot-delay-1 { animation-delay: 1.0s; }
-.player-dot-delay-2 { animation-delay: 1.2s; }
-.player-dot-delay-3 { animation-delay: 1.4s; }
-.player-dot-delay-4 { animation-delay: 1.6s; }
-.player-dot-delay-5 { animation-delay: 1.8s; }
-.player-dot-delay-6 { animation-delay: 2.0s; }
-.player-dot-delay-7 { animation-delay: 2.2s; }
-.player-dot-delay-8 { animation-delay: 2.4s; }
-.player-dot-delay-9 { animation-delay: 2.6s; }
-.player-dot-delay-10 { animation-delay: 2.8s; }
-.player-dot-delay-11 { animation-delay: 3.0s; }
+@layer utilities {
+  /* One orchestrated moment: the hero settles once on load (fade + 8 px rise, 240 ms). */
+  @media (prefers-reduced-motion: no-preference) {
+    .rise {
+      animation: rise 240ms cubic-bezier(0.2, 0, 0, 1) both;
+    }
 
-/* Arrow path animations */
-.tactic-arrow {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: drawLine 1.5s ease-in-out forwards;
-  animation-delay: 3.2s;
-}
+    .rise-1 {
+      animation-delay: 60ms;
+    }
 
-/* Particle background */
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(33, 150, 243, 0.3);
-  animation: particleFloat linear infinite;
-}
+    .rise-2 {
+      animation-delay: 120ms;
+    }
 
-@keyframes particleFloat {
-  0% {
-    transform: translateY(100vh) scale(0);
-    opacity: 0;
+    .rise-3 {
+      animation-delay: 180ms;
+    }
+
+    .rise-4 {
+      animation-delay: 240ms;
+    }
   }
-  10% {
-    opacity: 1;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
-  90% {
-    opacity: 0.3;
+
+  /* Elements that exist in one appearance only (badge artwork, toggle glyphs). */
+  .only-dark {
+    display: none;
   }
-  100% {
-    transform: translateY(-100px) scale(1);
-    opacity: 0;
+
+  :root[data-theme="dark"] .only-light {
+    display: none;
   }
-}
 
-/* Formation transition */
-.formation-dot {
-  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
+  :root[data-theme="dark"] .only-dark {
+    display: inline-block;
+  }
 
-/* Glow effects */
-.glow-green {
-  box-shadow: 0 0 30px rgba(46, 125, 50, 0.4), 0 0 60px rgba(46, 125, 50, 0.2);
-}
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .only-light {
+      display: none;
+    }
 
-.glow-blue {
-  box-shadow: 0 0 30px rgba(33, 150, 243, 0.4), 0 0 60px rgba(33, 150, 243, 0.2);
-}
-
-.text-glow {
-  text-shadow: 0 0 40px rgba(33, 150, 243, 0.5);
-}
-
-/* Section fade-in */
-.section-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-.section-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Noise texture overlay */
-.noise-overlay {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-
-/* Grid dot background */
-.dot-grid {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 30px 30px;
-}
-
-/* iPhone mockup */
-.iphone-frame {
-  border-radius: 44px;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.05),
-    0 20px 80px rgba(0,0,0,0.8),
-    inset 0 0 0 1px rgba(255,255,255,0.08);
-  background: #111;
-  position: relative;
-  overflow: hidden;
-}
-
-.iphone-notch {
-  position: absolute;
-  top: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 28px;
-  background: #000;
-  border-radius: 20px;
-  z-index: 10;
+    :root:not([data-theme="light"]) .only-dark {
+      display: inline-block;
+    }
+  }
 }
