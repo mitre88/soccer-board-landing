@@ -40,7 +40,7 @@ export const SUBJECTS = {
     names: ["iphone-ai-lineup", "iphone-coach-build"],
     alt: {
       en: "The coach’s suggested lineup: a 5-3-2 with a mini board, the explanation written by the on-device AI, and facts such as team width and the matchups between lines.",
-      es: "La alineación sugerida por el entrenador: un 5-3-2 con una minipizarra, la explicación que escribe la IA en el dispositivo y datos como el ancho del equipo y los duelos entre líneas. Captura con la interfaz en inglés.",
+      es: "La alineación sugerida por el entrenador: un 5-3-2 con una minipizarra, la explicación que escribe la IA en el dispositivo y datos como el ancho del equipo y los duelos entre líneas.",
     },
   },
   coachAnalyze: {
@@ -168,13 +168,14 @@ function screenIndex(): Map<string, ScreenFile> {
 }
 
 /**
- * Filenames: <name>[-en|-es][-light|-dark].<ext>. No locale suffix = any locale, no theme suffix = light.
- * Spanish pages fall back to English captures; English pages never show Spanish captures.
- * A missing dark capture falls back to the light one. Locales are never mixed within one slot.
+ * Filenames: <name>[-en|-es][-light|-dark].<ext>. No locale suffix = any locale (captures without
+ * interface text only), no theme suffix = light. Each language shows only its own captures: a Spanish
+ * page never falls back to an English capture, so a slot without a Spanish file renders nothing there.
+ * A missing dark capture falls back to the light one.
  */
 function resolveSubject(names: readonly string[], locale: Locale) {
   const index = screenIndex();
-  const levels = locale === "es" ? ["-es", "-en", ""] : ["-en", ""];
+  const levels = locale === "es" ? ["-es", ""] : ["-en", ""];
   for (const name of names) {
     for (const level of levels) {
       const base = `${name}${level}`;
