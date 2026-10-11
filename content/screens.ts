@@ -15,6 +15,14 @@ type Subject = {
 };
 
 export const SUBJECTS = {
+  /** The pitch alone, cropped from a board capture: no interface text, used on both languages. */
+  pitch: {
+    names: ["hero-pitch", "pitch"],
+    alt: {
+      en: "A section of the board seen from above: three player tokens with volume, light and shadow, two runs drawn as arrows, and the centre circle.",
+      es: "Una parte de la pizarra vista desde arriba: tres fichas de jugador con volumen, luz y sombra, dos carreras dibujadas con flechas y el círculo central.",
+    },
+  },
   duoOpenDesk: {
     names: ["duo-open-coach-desk", "duo-open-desk"],
     alt: {
@@ -39,8 +47,8 @@ export const SUBJECTS = {
   coachBuild: {
     names: ["iphone-ai-lineup", "iphone-coach-build"],
     alt: {
-      en: "The coach’s suggested lineup: a 5-3-2 with a mini board, the explanation written by the on-device AI, and facts such as team width and the matchups between lines.",
-      es: "La alineación sugerida por el entrenador: un 5-3-2 con una minipizarra, la explicación que escribe la IA en el dispositivo y datos como el ancho del equipo y los duelos entre líneas.",
+      en: "The coach’s suggested lineup: a 5-3-2 with a mini board of the formation, 3 players on the bench, and the explanation written by the on-device AI.",
+      es: "La alineación sugerida por el entrenador: un 5-3-2 con una minipizarra de la formación, 3 jugadores en la banca y la explicación que escribe la IA en el dispositivo.",
     },
   },
   coachAnalyze: {
@@ -64,12 +72,12 @@ export const SUBJECTS = {
       es: "La pizarra con efecto 3D en iPhone: fichas de jugador con volumen, luz y sombra sobre una cancha con profundidad.",
     },
   },
-  /** Crop of duo-closed-board-es (one half of the pitch). */
+  /** Crop of an outer-display board capture: one team's goal end. */
   boardCloseup: {
     names: ["board-closeup"],
     alt: {
-      en: "Close-up of the board: one team’s player tokens with volume, light and shadow, and a run drawn as a curved arrow.",
-      es: "Acercamiento a la pizarra: las fichas de un equipo con volumen, luz y sombra, y una carrera dibujada con una flecha curva.",
+      en: "Close-up of the board: eight player tokens of one team with volume, light and shadow, and the start of a run drawn as a curved arrow.",
+      es: "Acercamiento a la pizarra: ocho fichas de un mismo equipo con volumen, luz y sombra, y el inicio de una carrera dibujada con una flecha curva.",
     },
   },
   format11: {
@@ -90,8 +98,8 @@ export type SubjectId = keyof typeof SUBJECTS;
 
 /** Which subjects each page slot tries, in order. */
 export const SLOTS = {
-  // Until the open-desk capture exists, the hero shows the real outer-display capture.
-  hero: ["duoOpenDesk", "duoClosedBoard"],
+  // The pitch owns the hero. Full interface captures belong to their own sections.
+  hero: ["pitch"],
   coachBuild: ["coachBuild"],
   coachAnalyze: ["coachAnalyze"],
   coachInsight: ["coachInsight"],

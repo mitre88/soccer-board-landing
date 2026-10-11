@@ -4,6 +4,8 @@ import { AppStoreBadge } from "../AppStoreBadge";
 import { Disclosure } from "../Bits";
 import { ThemedPicture } from "../ThemedPicture";
 
+// The pitch owns the hero. On wide screens it sits beside the copy; below 900 px it comes right
+// after the lead, so the first screen shows the board before the download button.
 export function Hero({ locale }: { locale: Locale }) {
   const d = t(locale).hero;
   const shot = resolveSlot("hero", locale);
@@ -11,12 +13,8 @@ export function Hero({ locale }: { locale: Locale }) {
 
   return (
     <section id="top" aria-labelledby="hero-title" className="floodlit">
-      <div
-        className={`container-x grid items-center gap-12 pb-16 pt-10 md:pb-24 md:pt-16 ${
-          shot ? "min-[900px]:grid-cols-[minmax(0,1fr)_auto] min-[900px]:gap-16" : ""
-        }`}
-      >
-        <div className="max-w-[40rem]">
+      <div className={`container-x pb-16 pt-10 md:pb-24 md:pt-16 ${shot ? "hero-grid" : ""}`}>
+        <div className="hero-top max-w-[40rem]">
           <p className="rise">
             <span className="t-chip-plain">{d.badge}</span>
           </p>
@@ -24,6 +22,30 @@ export function Hero({ locale }: { locale: Locale }) {
             {d.title}
           </h1>
           <p className="t-lead rise rise-2 mt-5 max-w-[34rem]">{d.lead}</p>
+        </div>
+
+        {shot ? (
+          <div className="hero-visual rise rise-2 mt-8 min-[900px]:mt-0">
+            <ThemedPicture
+              light={shot.light}
+              dark={shot.dark}
+              alt={shot.alt}
+              priority
+              sizes={
+                landscape
+                  ? "(min-width: 1218px) 560px, (min-width: 900px) 46vw, (min-width: 652px) 600px, 92vw"
+                  : "(min-width: 900px) 400px, 76vw"
+              }
+              className={
+                landscape
+                  ? "capture h-auto w-full max-w-[600px] rounded-[12px] min-[900px]:w-[min(46vw,560px)]"
+                  : "capture mx-auto h-auto w-[min(76vw,340px)] rounded-[14px] min-[900px]:w-[400px]"
+              }
+            />
+          </div>
+        ) : null}
+
+        <div className="hero-bottom max-w-[40rem]">
           <div className="rise rise-3 mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
             <AppStoreBadge locale={locale} height={52} />
             <a href="#whats-new" className="t-link inline-flex min-h-11 items-center text-[1.0625rem] font-semibold">
@@ -35,23 +57,6 @@ export function Hero({ locale }: { locale: Locale }) {
             <Disclosure locale={locale} />
           </div>
         </div>
-
-        {shot ? (
-          <div className="rise rise-2 justify-self-center">
-            <ThemedPicture
-              light={shot.light}
-              dark={shot.dark}
-              alt={shot.alt}
-              priority
-              sizes={landscape ? "(min-width: 900px) 600px, 92vw" : "(min-width: 1200px) 420px, (min-width: 900px) 380px, 76vw"}
-              className={
-                landscape
-                  ? "capture h-auto w-[min(92vw,600px)] rounded-[22px]"
-                  : "capture h-auto w-[min(76vw,340px)] rounded-[26px] min-[900px]:w-[380px] xl:w-[420px]"
-              }
-            />
-          </div>
-        ) : null}
       </div>
     </section>
   );

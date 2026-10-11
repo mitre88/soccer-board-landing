@@ -300,6 +300,34 @@
     );
   }
 
+  /* Hero: copy and pitch side by side from 900 px. Below that the DOM order applies:
+     badge, title, lead, pitch, download, notes. */
+  @media (min-width: 900px) {
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-rows: auto 1fr;
+      grid-template-areas:
+        "top visual"
+        "bottom visual";
+      column-gap: 4rem;
+      align-items: start;
+    }
+
+    .hero-top {
+      grid-area: top;
+    }
+
+    .hero-visual {
+      grid-area: visual;
+      align-self: center;
+    }
+
+    .hero-bottom {
+      grid-area: bottom;
+    }
+  }
+
   /* Only glass on the page: the sticky navigation bar. */
   .navbar-glass {
     background-color: oklch(var(--canvas) / 0.82);

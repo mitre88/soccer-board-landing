@@ -5,21 +5,14 @@ import { ThemedPicture } from "../ThemedPicture";
 
 type Figure = { key: string; shot: ResolvedScreen; caption: string };
 
-/**
- * Real iPhone Duo captures for this section. A capture already used as the hero fallback is
- * not repeated here (the open desk is the one shared on purpose, as in the brief).
- */
+/** Real iPhone Duo captures for this section (the hero shows the pitch only, never these). */
 export function duoFigures(locale: Locale): Figure[] {
   const d = t(locale).duo;
-  const heroSubject = resolveSlot("hero", locale)?.subject;
   return [
     { key: "closed", shot: resolveSlot("duoClosed", locale), caption: d.captionClosed },
     { key: "open", shot: resolveSlot("duoOpen", locale), caption: d.captionOpen },
     { key: "half", shot: resolveSlot("duoHalf", locale), caption: d.captionHalf },
-  ].filter(
-    (figure): figure is Figure =>
-      figure.shot !== null && (figure.shot.subject === "duoOpenDesk" || figure.shot.subject !== heroSubject),
-  );
+  ].filter((figure): figure is Figure => figure.shot !== null);
 }
 
 function DuoFigure({ figure, sizes, width }: { figure: Figure; sizes: string; width: string }) {
