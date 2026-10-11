@@ -262,7 +262,7 @@ export const terms: Record<Locale, LegalDoc> = {
         heading: "No warranty",
         blocks: [
           p(
-            "We work to keep the app reliable, but it is provided “as is”, to the extent the law allows. We do not promise that it will be free of errors or that it will meet every need.",
+            "We work to keep the app reliable, but it is provided “as is”, to the extent the law allows. We do not promise that it will always work without errors or that it will meet every need.",
           ),
         ],
       },
