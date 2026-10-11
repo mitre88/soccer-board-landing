@@ -13,6 +13,17 @@ const SUBTITLE: Record<Locale, string> = {
 
 const asset = (file: string) => readFile(path.join(process.cwd(), "assets", "og", file));
 
+// The renderer spaces some word pairs unevenly; laying words out with a fixed gap keeps them even.
+function Words({ text, gap, style }: { text: string; gap: number; style: React.CSSProperties }) {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", columnGap: gap, ...style }}>
+      {text.split(" ").map((word, index) => (
+        <span key={index}>{word}</span>
+      ))}
+    </div>
+  );
+}
+
 export async function renderOgImage(locale: Locale) {
   const [bold, regular, icon, pitch] = await Promise.all([
     asset("Geist-Bold.ttf"),
@@ -41,7 +52,9 @@ export async function renderOgImage(locale: Locale) {
         <div style={{ display: "flex", flexDirection: "column", maxWidth: 600 }}>
           {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
           <img src={dataUri(icon)} width={112} height={112} style={{ borderRadius: 26 }} />
-          <div
+          <Words
+            text={APP_NAME}
+            gap={13}
             style={{
               marginTop: 44,
               fontSize: 76,
@@ -50,12 +63,12 @@ export async function renderOgImage(locale: Locale) {
               letterSpacing: "-0.03em",
               color: "#F0F4F2",
             }}
-          >
-            {APP_NAME}
-          </div>
-          <div style={{ marginTop: 22, fontSize: 36, fontWeight: 400, color: "#ACB3AF" }}>
-            {SUBTITLE[locale]}
-          </div>
+          />
+          <Words
+            text={SUBTITLE[locale]}
+            gap={7}
+            style={{ marginTop: 22, fontSize: 36, fontWeight: 400, color: "#ACB3AF" }}
+          />
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
         <img
