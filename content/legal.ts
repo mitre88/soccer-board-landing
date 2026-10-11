@@ -401,11 +401,11 @@ export const support: Record<Locale, SupportDoc> = {
       },
       {
         q: "How do I build a lineup with the coach?",
-        a: "Open the coach panel, pick your plan with the chips or type it in your own words, and tap **Build my lineup**. Review the formation and the explanation, then tap **Apply to board**.",
+        a: "Open the **AI Coach** tab, pick your plan with the chips or type it in your own words, and tap **Build my lineup**. Review the formation and the explanation, then tap **Apply to board**.",
       },
       {
         q: "How do I analyze my setup?",
-        a: "With your players on the board, open the coach panel and tap **Analyze my setup**. You get up to 3 adjustments, numbered on the board and listed in the panel. Tap **Apply** on the ones you want.",
+        a: "With your players on the board, open the **AI Coach** tab and tap **Analyze my setup**. You get up to 3 adjustments, numbered on the board and in the list. Tap **Apply** on the ones you want.",
       },
       {
         q: "How do I remove the field photo?",
@@ -445,11 +445,11 @@ export const support: Record<Locale, SupportDoc> = {
       },
       {
         q: "¿Cómo armo una alineación con el entrenador?",
-        a: "Abre el panel del entrenador, elige tu plan con las opciones rápidas o escríbelo con tus propias palabras y toca **Armar mi alineación**. Revisa la formación y la explicación, y luego aplícala en la pizarra.",
+        a: "Abre la pestaña **Entrenador IA**, elige tu plan con las opciones rápidas o escríbelo con tus propias palabras y toca el botón para armar tu alineación. Revisa la formación y la explicación, y luego aplícala en la pizarra.",
       },
       {
         q: "¿Cómo analizo mi parado?",
-        a: "Con tus jugadores en la pizarra, abre el panel del entrenador y toca **Analizar mi parado**. Recibes hasta 3 ajustes, numerados en la pizarra y listados en el panel. Aplica los que quieras con un toque.",
+        a: "Con tus jugadores en la pizarra, abre la pestaña **Entrenador IA** y toca el botón para analizar tu parado. Recibes hasta 3 ajustes, numerados en la pizarra y en la lista. Aplica los que quieras con un toque.",
       },
       {
         q: "¿Cómo quito la foto de la cancha?",
