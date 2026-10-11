@@ -1,32 +1,23 @@
 import type { MetadataRoute } from "next";
+import { LEGAL_UPDATED_ISO, SITE_URL, locales, localePath } from "@/content/site";
+
+const PATHS = ["/", "/privacy-policy", "/support", "/terms-of-service"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://soccer-board-landing.vercel.app";
-
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/terms-of-service`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/support`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-  ];
+  const lastModified = new Date(`${LEGAL_UPDATED_ISO}T00:00:00Z`);
+  return PATHS.flatMap((path) =>
+    locales.map((locale) => ({
+      url: `${SITE_URL}${localePath(locale, path)}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: path === "/" ? 1 : 0.5,
+      alternates: {
+        languages: {
+          en: `${SITE_URL}${localePath("en", path)}`,
+          "es-MX": `${SITE_URL}${localePath("es", path)}`,
+          "x-default": `${SITE_URL}${localePath("en", path)}`,
+        },
+      },
+    })),
+  );
 }
