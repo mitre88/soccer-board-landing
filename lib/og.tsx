@@ -4,8 +4,8 @@ import { ImageResponse } from "next/og";
 import { APP_NAME, type Locale } from "@/content/site";
 
 // 1200 x 630 social card built from real content: the shipped app icon, the store name and
-// subtitle, and a crop of a real 2.0 board capture (assets/og/board-pitch.png).
-// Night-match palette (dark tokens of Brand/palette.json, as sRGB hex for the renderer).
+// subtitle above a section of a real 2.0 board capture (assets/og/board-pitch.png, 894 x 410,
+// drawn at its own size). Night-match palette (dark tokens of Brand/palette.json, as sRGB hex).
 const SUBTITLE: Record<Locale, string> = {
   en: "AI Tactical Whiteboard",
   es: "Pizarra táctica con IA",
@@ -40,43 +40,45 @@ export async function renderOgImage(locale: Locale) {
           width: "100%",
           height: "100%",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 96px",
+          justifyContent: "center",
           backgroundColor: "#0C120F",
           backgroundImage:
             "radial-gradient(circle 760px at 0px 0px, rgba(252, 245, 223, 0.06), rgba(252, 245, 223, 0))",
           fontFamily: "Geist",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column", maxWidth: 600 }}>
+        <div style={{ display: "flex", alignItems: "center", width: 894 }}>
           {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
-          <img src={dataUri(icon)} width={112} height={112} style={{ borderRadius: 26 }} />
-          <Words
-            text={APP_NAME}
-            gap={13}
-            style={{
-              marginTop: 44,
-              fontSize: 76,
-              fontWeight: 700,
-              lineHeight: 1.02,
-              letterSpacing: "-0.03em",
-              color: "#F0F4F2",
-            }}
-          />
-          <Words
-            text={SUBTITLE[locale]}
-            gap={7}
-            style={{ marginTop: 22, fontSize: 36, fontWeight: 400, color: "#ACB3AF" }}
-          />
+          <img src={dataUri(icon)} width={96} height={96} style={{ borderRadius: 22 }} />
+          <div style={{ display: "flex", flexDirection: "column", marginLeft: 28 }}>
+            <Words
+              text={APP_NAME}
+              gap={11}
+              style={{
+                fontSize: 56,
+                fontWeight: 700,
+                lineHeight: 1.05,
+                letterSpacing: "-0.03em",
+                color: "#F0F4F2",
+              }}
+            />
+            <Words
+              text={SUBTITLE[locale]}
+              gap={6}
+              style={{ marginTop: 8, fontSize: 30, fontWeight: 400, color: "#ACB3AF" }}
+            />
+          </div>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
         <img
           src={dataUri(pitch)}
-          width={340}
-          height={511}
+          width={894}
+          height={410}
           style={{
-            borderRadius: 10,
+            marginTop: 36,
+            borderRadius: 12,
             boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3), 0 18px 36px rgba(0, 2, 0, 0.55)",
           }}
         />

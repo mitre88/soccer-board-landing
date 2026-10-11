@@ -1,3 +1,6 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import type { Metadata, Viewport } from "next";
 import {
   APP_NAME,
@@ -32,6 +35,16 @@ export const rootMetadata: Metadata = {
 
 type PageKey = "home" | "privacy" | "terms" | "support";
 
+// The social cards are served with a one-year immutable cache, so their URL carries a hash of
+// everything that draws them: a new crop or layout gets a new URL.
+const OG_VERSION = (() => {
+  const hash = createHash("sha256");
+  for (const file of ["lib/og.tsx", "assets/og/board-pitch.png", "assets/og/app-icon.png"]) {
+    hash.update(readFileSync(path.join(process.cwd(), file)));
+  }
+  return hash.digest("hex").slice(0, 10);
+})();
+
 const PATHS: Record<PageKey, string> = {
   home: "/",
   privacy: "/privacy-policy",
@@ -45,7 +58,7 @@ export function pageMetadata(locale: Locale, page: PageKey): Metadata {
   const description = page === "home" ? d.homeDescription : d[`${page}Description`];
   const path = PATHS[page];
   const url = localePath(locale, path);
-  const image = { url: `/og/${locale}.png`, width: 1200, height: 630, alt: d.ogAlt };
+  const image = { url: `/og/${locale}.png?v=${OG_VERSION}`, width: 1200, height: 630, alt: d.ogAlt };
 
   return {
     title: { absolute: title },
