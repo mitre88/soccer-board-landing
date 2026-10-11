@@ -65,3 +65,13 @@ export function InsightIcon({ className }: IconProps) {
     </svg>
   );
 }
+
+/** Same reading as the app's "On-device AI" mark (SF Symbol iphone): a phone outline. */
+export function PhoneIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="6.5" y="2.5" width="11" height="19" rx="2.6" />
+      <path d="M10.5 5.4h3" />
+    </svg>
+  );
+}

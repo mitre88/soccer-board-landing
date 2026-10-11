@@ -1,7 +1,7 @@
 import { t, type Locale } from "@/content/site";
 import { resolveSlot, type SlotId } from "@/content/screens";
 import { Disclosure, NewChip } from "../Bits";
-import { InsightIcon } from "../Icons";
+import { InsightIcon, PhoneIcon } from "../Icons";
 import { ThemedPicture } from "../ThemedPicture";
 
 const CAPTURE_SLOTS: SlotId[] = ["coachBuild", "coachAnalyze", "coachInsight"];
@@ -66,9 +66,14 @@ export function Coach({ locale }: { locale: Locale }) {
                     <p className="t-body mt-2 text-ink-2">{c.insights.body}</p>
                   </div>
                 </li>
-                <li className="flex-1 rounded-lg bg-surface p-6 md:pl-[5.25rem]">
-                  <h3 className="t-h3">{c.private.title}</h3>
-                  <p className="t-body mt-2 text-ink-2">{c.private.body}</p>
+                <li className="flex flex-1 items-start gap-5 rounded-lg bg-surface p-6">
+                  <span className="flex w-10 shrink-0 justify-center pt-0.5">
+                    <PhoneIcon className="h-8 w-8 text-ink-2" />
+                  </span>
+                  <div>
+                    <h3 className="t-h3">{c.private.title}</h3>
+                    <p className="t-body mt-2 text-ink-2">{c.private.body}</p>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -78,13 +83,16 @@ export function Coach({ locale }: { locale: Locale }) {
           </div>
 
           {shots.length === 1 ? (
-            <ThemedPicture
-              light={shots[0].light}
-              dark={shots[0].dark}
-              alt={shots[0].alt}
-              sizes="(min-width: 1200px) 340px, (min-width: 640px) 340px, 80vw"
-              className="capture mx-auto h-auto w-[min(80vw,340px)] rounded-[18px] xl:w-full"
-            />
+            // Below 1200 px the capture comes first, right under the lead it illustrates.
+            <div className="order-first xl:order-none">
+              <ThemedPicture
+                light={shots[0].light}
+                dark={shots[0].dark}
+                alt={shots[0].alt}
+                sizes="(min-width: 1200px) 340px, (min-width: 640px) 340px, 80vw"
+                className="capture mx-auto h-auto w-[min(80vw,340px)] rounded-[18px] xl:w-full"
+              />
+            </div>
           ) : null}
         </div>
 
