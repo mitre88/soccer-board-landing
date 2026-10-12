@@ -33,8 +33,8 @@ placeholder, no drawn pitch, no mock UI. Drop a real capture in, rebuild, and it
 | `duo-closed-board` | | iPhone Duo (closed) | Outer display, compact board, same lineup, cameras in the tool column |
 | `duo-half-open` | `duo-half-desk` | iPhone Duo (half open) | Half-folded, same session, board and coach panel side by side |
 | `iphone-ai-lineup` | `iphone-coach-build` | AI coach | Plan chips picked + the suggested lineup and explanation (on-device model available) |
-| `iphone-analysis` | `iphone-coach-analyze` | AI coach | Ghosts, arrows, badges 1–3 + adjustment rows, all from the on-device model |
-| `iphone-insight` | `iphone-coach-insight` | AI coach | Insight pill over the board |
+| `iphone-analysis` | `iphone-coach-analyze` | AI coach | Analysis mode in the coach panel: up to three numbered adjustment cards, each with Apply, all marked On-device AI (the board changes only after Apply) |
+| `iphone-insight` | `iphone-coach-insight` | AI coach | Insight rows under "ON THE BOARD" in the coach panel |
 | `iphone-3d-board` | `iphone-board-3d` | 3D board | 11-a-side, tokens with light and shadow |
 | `board-closeup` | | 3D board, until `iphone-3d-board` exists | A close-up crop of the board |
 | `iphone-format-11` / `-7` / `-futsal` | | Built for every squad (tiles appear only when one exists) | One capture per format |

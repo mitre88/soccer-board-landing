@@ -55,15 +55,15 @@ export const SUBJECTS = {
   coachAnalyze: {
     names: ["iphone-analysis", "iphone-coach-analyze"],
     alt: {
-      en: "Setup analysis on iPhone: suggested adjustments marked on the board with numbered badges and listed with an Apply button each.",
-      es: "Análisis del parado en iPhone: ajustes sugeridos marcados en la pizarra con números y listados con un botón para aplicar cada uno.",
+      en: "Setup analysis on iPhone: up to three numbered adjustment cards, each with an Apply button.",
+      es: "Análisis del parado en iPhone: hasta tres ajustes numerados, cada uno con un botón para aplicarlo.",
     },
   },
   coachInsight: {
     names: ["iphone-insight", "iphone-coach-insight"],
     alt: {
-      en: "An insight about the team’s shape shown over the board on iPhone.",
-      es: "Una observación sobre el acomodo del equipo, mostrada sobre la pizarra en iPhone.",
+      en: "Coach insights about the shape on the board, listed in the coach panel.",
+      es: "Observaciones del entrenador sobre el acomodo en la pizarra, en el panel del entrenador.",
     },
   },
   board3d: {
