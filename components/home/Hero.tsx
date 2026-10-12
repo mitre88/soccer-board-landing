@@ -47,7 +47,7 @@ export function Hero({ locale }: { locale: Locale }) {
 
         <div className="hero-bottom max-w-[40rem]">
           <div className="rise rise-3 mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
-            <AppStoreBadge locale={locale} height={52} />
+            <AppStoreBadge locale={locale} height={52} loading="eager" />
             <a href="#whats-new" className="t-link inline-flex min-h-11 items-center text-[1.0625rem] font-semibold">
               {d.whatsNewLink}
             </a>
