@@ -88,7 +88,7 @@ const en = {
     lead: "Tell the coach your plan and see it on the board.",
     build: {
       title: "Build my lineup",
-      body: "Pick the plan with chips (“defend a lead,” “protect left flank,” “high press”) or type it in your own words. The AI understands the plan, picks the best formation, assigns the players by position, explains why, and applies it to the board with an animation.",
+      body: "Pick the plan with chips (“Defend lead,” “Protect left,” “High press”) or type it in your own words. The AI understands the plan, picks the best formation, assigns the players by position, explains why, and applies it to the board with an animation.",
     },
     analyze: {
       title: "Analyze my setup",
