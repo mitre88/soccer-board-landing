@@ -260,11 +260,11 @@ const es: Dictionary = {
     title: "Entrenador con IA en tu iPhone",
     lead: "Cuéntale tu plan al entrenador con IA y míralo en la pizarra.",
     build: {
-      title: "Armar mi alineación",
-      body: "Toca una opción rápida, como “defender la ventaja”, “proteger la banda izquierda” o “presión alta”, o escribe el plan con tus propias palabras. La IA entiende el plan, elige la mejor formación, acomoda a los jugadores por posición, te explica por qué y lo aplica en la pizarra con una animación.",
+      title: "Arma tu alineación con IA",
+      body: "Elige tu plan con las opciones rápidas o escríbelo con tus propias palabras. La IA entiende el plan, elige la mejor formación, acomoda a los jugadores por posición, te explica por qué y lo aplica en la pizarra con una animación.",
     },
     analyze: {
-      title: "Analizar mi parado",
+      title: "Analiza y mejora tu parado",
       body: "Hasta 3 ajustes concretos. Aplica cada uno en la pizarra con un solo toque.",
       numeralLabel: "Hasta 3 ajustes",
     },
