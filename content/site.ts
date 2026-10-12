@@ -114,7 +114,7 @@ const en = {
   },
   board: {
     title: "A 3D-style tactical board",
-    body: "Player tokens with volume, light and shadow, on a pitch with depth.",
+    body: "Player tokens with volume, light and shadow, on a pitch with depth. Switch to Broadcast View or Behind the Goal to see the whole pitch in perspective.",
   },
   duo: {
     title: "A coach desk for iPhone Duo",
@@ -154,6 +154,11 @@ const en = {
         rest: ": turns your plan into a lineup and suggests up to 3 one-tap adjustments.",
       },
       { href: "#board", label: "3D-style board", rest: " with light, shadow and depth." },
+      {
+        href: "#board",
+        label: "New cameras",
+        rest: ": Broadcast View and Behind the Goal show the whole pitch in perspective.",
+      },
       {
         href: "#duo",
         label: "iPhone Duo",
@@ -288,7 +293,7 @@ const es: Dictionary = {
   },
   board: {
     title: "Pizarra con efecto 3D",
-    body: "Fichas de jugador con volumen, luz y sombra, sobre una cancha con profundidad.",
+    body: "Fichas de jugador con volumen, luz y sombra, sobre una cancha con profundidad. Cambia a Vista de transmisión o Detrás de la portería para ver toda la cancha en perspectiva.",
   },
   duo: {
     title: "Mesa del entrenador para iPhone Duo",
@@ -328,6 +333,11 @@ const es: Dictionary = {
         rest: ": convierte tu plan en alineación y sugiere hasta 3 ajustes de un toque.",
       },
       { href: "#board", label: "Pizarra con efecto 3D", rest: ", con luz, sombra y profundidad." },
+      {
+        href: "#board",
+        label: "Cámaras nuevas",
+        rest: ": Vista de transmisión y Detrás de la portería muestran toda la cancha en perspectiva.",
+      },
       {
         href: "#duo",
         label: "iPhone Duo",

@@ -17,7 +17,7 @@ export function WhatsNew({ locale }: { locale: Locale }) {
             <p className="t-lead mt-3">{w.lead}</p>
             <ul role="list" className="mt-8 space-y-4">
               {w.items.map((item) => (
-                <li key={item.href} className="t-body">
+                <li key={item.label} className="t-body">
                   <a href={item.href} className="t-link font-semibold">
                     {item.label}
                   </a>
