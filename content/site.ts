@@ -39,6 +39,8 @@ type Widen<T> = T extends string
 const en = {
   meta: {
     homeTitle: "SoccerBoard Tactics AI — AI Tactical Whiteboard",
+    /** Structured data: the minimum system, worded for this language. */
+    operatingSystem: "iOS 26.4 or later",
     homeDescription:
       "AI helps you plan and improve your strategy and your lineup. It is private and works offline on compatible iPhones. Now available for iPhone Duo.",
     ogAlt: "SoccerBoard Tactics AI, AI Tactical Whiteboard: the app icon and name above a section of the 3D-style board.",
@@ -212,6 +214,7 @@ export type Dictionary = Widen<typeof en>;
 const es: Dictionary = {
   meta: {
     homeTitle: "SoccerBoard Tactics AI — Pizarra táctica con IA",
+    operatingSystem: "iOS 26.4 o posterior",
     homeDescription:
       "La IA te ayuda a planear y mejorar tu estrategia y el parado de tu equipo. Es privada y funciona sin conexión en un iPhone compatible. Ya disponible para iPhone Duo.",
     ogAlt: "SoccerBoard Tactics AI, pizarra táctica con IA: el ícono y el nombre de la app sobre una parte de la pizarra con efecto 3D.",

@@ -3,6 +3,7 @@ import {
   APP_STORE_URL,
   SELLER,
   SITE_URL,
+  htmlLang,
   localePath,
   t,
   type Locale,
@@ -17,6 +18,9 @@ import { Hero } from "./Hero";
 import { Performance } from "./Performance";
 import { WhatsNew } from "./WhatsNew";
 
+// No offers, ratings or reviews: the price is set per storefront in App Store Connect and can change
+// without a deploy, and ratings are never written by hand. Google shows no app rich result without
+// them, which is accepted.
 function structuredData(locale: Locale) {
   return {
     "@context": "https://schema.org",
@@ -26,7 +30,8 @@ function structuredData(locale: Locale) {
     url: `${SITE_URL}${localePath(locale, "/")}`,
     downloadUrl: APP_STORE_URL,
     installUrl: APP_STORE_URL,
-    operatingSystem: "iOS 26.4 or later",
+    operatingSystem: t(locale).meta.operatingSystem,
+    inLanguage: htmlLang[locale],
     applicationCategory: "SportsApplication",
     image: `${SITE_URL}/brand/app-icon.png`,
     author: { "@type": "Person", name: SELLER },
