@@ -7,7 +7,7 @@ import { APP_NAME, type Locale } from "@/content/site";
 // subtitle above a section of a real 2.0 board capture (assets/og/board-pitch.png, 894 x 410,
 // drawn at its own size). Night-match palette (dark tokens of Brand/palette.json, as sRGB hex).
 const SUBTITLE: Record<Locale, string> = {
-  en: "AI Tactical Whiteboard",
+  en: "Tactical AI Whiteboard",
   es: "Pizarra táctica con IA",
 };
 

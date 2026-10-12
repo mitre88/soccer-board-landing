@@ -38,12 +38,12 @@ type Widen<T> = T extends string
 
 const en = {
   meta: {
-    homeTitle: "SoccerBoard Tactics AI — AI Tactical Whiteboard",
+    homeTitle: "SoccerBoard Tactics AI — Tactical AI Whiteboard",
     /** Structured data: the minimum system, worded for this language. */
     operatingSystem: "iOS 26.4 or later",
     homeDescription:
       "AI helps you plan and improve your strategy and your lineup. It is private and works offline on compatible iPhones. Now available for iPhone Duo.",
-    ogAlt: "SoccerBoard Tactics AI, AI Tactical Whiteboard: the app icon and name above a section of the 3D-style board.",
+    ogAlt: "SoccerBoard Tactics AI, Tactical AI Whiteboard: the app icon and name over a top-down section of the board, with three player tokens and two drawn runs.",
     privacyTitle: "Privacy Policy — SoccerBoard Tactics AI",
     privacyDescription:
       "SoccerBoard Tactics AI does not collect personal data. Your teams and boards stay on your device, and the AI coach runs there too.",
@@ -224,7 +224,7 @@ const es: Dictionary = {
     operatingSystem: "iOS 26.4 o posterior",
     homeDescription:
       "La IA te ayuda a planear y mejorar tu estrategia y el parado de tu equipo. Es privada y funciona sin conexión en un iPhone compatible. Ya disponible para iPhone Duo.",
-    ogAlt: "SoccerBoard Tactics AI, pizarra táctica con IA: el ícono y el nombre de la app sobre una parte de la pizarra con efecto 3D.",
+    ogAlt: "SoccerBoard Tactics AI, pizarra táctica con IA: el ícono y el nombre de la app sobre una parte de la pizarra vista desde arriba, con tres fichas de jugador y dos carreras dibujadas.",
     privacyTitle: "Aviso de privacidad — SoccerBoard Tactics AI",
     privacyDescription:
       "SoccerBoard Tactics AI no recopila datos personales. Tus equipos y pizarras se quedan en tu dispositivo y el entrenador con IA también corre ahí.",
