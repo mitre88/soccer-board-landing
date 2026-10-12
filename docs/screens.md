@@ -73,6 +73,13 @@ add the Spanish captures:
 4. `board-closeup` + `-dark`, or `iphone-3d-board` + `-dark`.
 5. Re-crop `assets/og/board-pitch.png` from the new dark capture.
 
-Update the alt texts and this table in the same commit. Deploy to production only after App Store
-Connect shows 2.0.0 Ready for Distribution and `https://itunes.apple.com/lookup?id=6762029244`
-returns version 2.0.0.
+Update the alt texts and this table in the same commit.
+
+## Deploying
+
+- Previews (`vercel deploy` without `--prod`) are for review only. Vercel serves preview URLs with
+  `X-Robots-Tag: noindex` by default; keep Deployment Protection on and never give a preview a
+  custom domain.
+- Production only through `npm run deploy:prod`. It runs `npm run release:check` first, which stops
+  unless the public lookup (`https://itunes.apple.com/lookup?id=6762029244`, US and MX storefronts)
+  returns version 2.0.0 with minimum iOS 26.4, that is, once 2.0.0 is live on the App Store.

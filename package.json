@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "release:check": "node scripts/check-store-release.mjs",
+    "deploy:prod": "npm run release:check && vercel deploy --prod"
   },
   "dependencies": {
     "next": "15.5.27",
