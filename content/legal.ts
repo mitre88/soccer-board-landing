@@ -2,7 +2,8 @@
 // Inline tokens rendered as links: {email}, {store}, {review}. **text** renders as strong.
 // Facts checked against the 2.0 project: no collected data types and no tracking in the privacy
 // manifest, no networking or analytics code, photo library access only (pick a field photo,
-// save board images), on-device coach with a rule-based fallback, paid app without in-app purchases.
+// save board images), opt-in local reminders (7 AM and 7 PM, scheduled on the device), on-device
+// coach with a rule-based fallback, paid app without in-app purchases.
 import type { Locale } from "./site";
 
 export type Block = { type: "p"; text: string } | { type: "ul"; items: string[] };
@@ -63,6 +64,14 @@ export const privacy: Record<Locale, LegalDoc> = {
         blocks: [
           p(
             "If you add a photo of your field, the app uses only the photo you choose, on your device, as the background of the board. If you save a board as an image, the app asks for permission to add it to your photo library. You can change photo access at any time in your device settings.",
+          ),
+        ],
+      },
+      {
+        heading: "Notifications",
+        blocks: [
+          p(
+            "If you turn on daily reminders in the app’s Settings, the app asks for permission to show notifications. Reminders are scheduled on your device and nothing is sent to us. You can turn them off at any time.",
           ),
         ],
       },
@@ -150,6 +159,14 @@ export const privacy: Record<Locale, LegalDoc> = {
         blocks: [
           p(
             "Si agregas una foto de tu cancha, la app usa solo la foto que eliges, en tu dispositivo, como fondo de la pizarra. Si guardas una pizarra como imagen, la app te pide permiso para agregarla a tu fototeca. Puedes cambiar el acceso a tus fotos en cualquier momento desde la configuración de tu dispositivo.",
+          ),
+        ],
+      },
+      {
+        heading: "Notificaciones",
+        blocks: [
+          p(
+            "Si activas los recordatorios diarios en los Ajustes de la app, la app te pide permiso para mostrar notificaciones. Los recordatorios se programan en tu dispositivo y no nos envían nada. Puedes desactivarlos cuando quieras.",
           ),
         ],
       },

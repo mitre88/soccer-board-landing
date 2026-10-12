@@ -18,7 +18,7 @@ export const APP_STORE_REVIEW_URL = `${APP_STORE_URL}?action=write-review`;
 /** App Store seller of record (individual developer account). */
 export const SELLER = "Alejandro Hernandez Mitre";
 export const CONTACT_EMAIL = "vamosmexico2018.ahm@gmail.com";
-export const LEGAL_UPDATED_ISO = "2026-10-10";
+export const LEGAL_UPDATED_ISO = "2026-10-11";
 
 /** "/support" in English is "/es/support" in Spanish; "/" is "/es". */
 export function localePath(locale: Locale, path: string): string {
@@ -202,7 +202,7 @@ const en = {
   },
   legal: {
     updatedLabel: "Last updated",
-    updatedDate: "October 10, 2026",
+    updatedDate: "October 11, 2026",
     contactLabel: "Email",
   },
 } as const;
@@ -378,7 +378,7 @@ const es: Dictionary = {
   },
   legal: {
     updatedLabel: "Última actualización",
-    updatedDate: "10 de octubre de 2026",
+    updatedDate: "11 de octubre de 2026",
     contactLabel: "Correo",
   },
 };
