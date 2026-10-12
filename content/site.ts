@@ -74,6 +74,8 @@ const en = {
   },
   badgeAlt: "Download on the App Store",
   newChip: "New in 2.0",
+  /** Features that existed in 1.x and were rebuilt for 2.0 (the AI coach shipped on-device in 1.1). */
+  rebuiltChip: "Rebuilt in 2.0",
   disclosure: {
     label: "AI availability:",
     text: "the on-device AI needs a compatible iPhone or iPad, with on-device AI turned on in Settings and a supported language. Without it, the coach still works: the tactics engine still builds lineups and checks your setup, and the explanations and adjustments are rule-based and labeled that way.",
@@ -150,7 +152,7 @@ const en = {
     items: [
       {
         href: "#coach",
-        label: "AI coach on your iPhone",
+        label: "AI Coach, rebuilt",
         rest: ": turns your plan into a lineup and suggests up to 3 one-tap adjustments.",
       },
       { href: "#board", label: "3D-style board", rest: " with light, shadow and depth." },
@@ -253,6 +255,7 @@ const es: Dictionary = {
   },
   badgeAlt: "Descárgalo en el App Store",
   newChip: "Nuevo en 2.0",
+  rebuiltChip: "Renovado en 2.0",
   disclosure: {
     label: "Disponibilidad de la IA:",
     text: "necesita un iPhone o iPad compatible, con la IA en el dispositivo activada en Ajustes y un idioma compatible. Sin ella, el entrenador sigue funcionando: el motor táctico arma la alineación y revisa tu esquema, y las explicaciones y los ajustes se basan en reglas y así se indican.",
@@ -329,7 +332,7 @@ const es: Dictionary = {
     items: [
       {
         href: "#coach",
-        label: "Entrenador con IA",
+        label: "Entrenador IA, renovado",
         rest: ": convierte tu plan en alineación y sugiere hasta 3 ajustes de un toque.",
       },
       { href: "#board", label: "Pizarra con efecto 3D", rest: ", con luz, sombra y profundidad." },

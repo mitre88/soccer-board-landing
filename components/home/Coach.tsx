@@ -6,22 +6,52 @@ import { ThemedPicture } from "../ThemedPicture";
 
 const CAPTURE_SLOTS: SlotId[] = ["coachBuild", "coachAnalyze", "coachInsight"];
 
+// Two or three captures form a row right under the lead, each at most 420 px: about the size the
+// panel has on a 6.9-inch iPhone, so its text reads like the page text. One capture keeps the side
+// column from 1200 px.
+const ROW = {
+  2: {
+    columns: "sm:grid-cols-[repeat(2,minmax(0,420px))]",
+    sizes: "(min-width: 912px) 420px, (min-width: 640px) 46vw, (min-width: 457px) 420px, 92vw",
+  },
+  3: {
+    columns: "sm:grid-cols-[repeat(3,minmax(0,380px))]",
+    sizes: "(min-width: 1236px) 380px, (min-width: 640px) 30vw, (min-width: 413px) 380px, 92vw",
+  },
+} as const;
+
 export function Coach({ locale }: { locale: Locale }) {
   const c = t(locale).coach;
   const shots = CAPTURE_SLOTS.map((slot) => resolveSlot(slot, locale)).filter(
     (shot): shot is NonNullable<typeof shot> => shot !== null,
   );
+  const row = shots.length > 1 ? ROW[shots.length as 2 | 3] : null;
 
   return (
     <section id="coach" aria-labelledby="coach-title" className="py-16 md:py-24">
       <div className="container-x">
         <div className="max-w-[46rem]">
-          <NewChip locale={locale} />
+          <NewChip locale={locale} rebuilt />
           <h2 id="coach-title" className="t-h2 mt-5">
             {c.title}
           </h2>
           <p className="t-lead mt-4">{c.lead}</p>
         </div>
+
+        {row ? (
+          <div className={`mt-10 grid grid-cols-1 items-start gap-6 ${row.columns}`}>
+            {shots.map((shot) => (
+              <ThemedPicture
+                key={shot.subject}
+                light={shot.light}
+                dark={shot.dark}
+                alt={shot.alt}
+                sizes={row.sizes}
+                className="capture h-auto w-full max-w-[420px] rounded-[18px]"
+              />
+            ))}
+          </div>
+        ) : null}
 
         <div
           className={`mt-10 grid gap-10 ${
@@ -95,21 +125,6 @@ export function Coach({ locale }: { locale: Locale }) {
             </div>
           ) : null}
         </div>
-
-        {shots.length > 1 ? (
-          <div className="mt-10 grid grid-cols-1 items-start gap-6 sm:grid-cols-3">
-            {shots.map((shot) => (
-              <ThemedPicture
-                key={shot.subject}
-                light={shot.light}
-                dark={shot.dark}
-                alt={shot.alt}
-                sizes="(min-width: 1200px) 380px, (min-width: 640px) 30vw, 80vw"
-                className="capture mx-auto h-auto w-[min(80vw,380px)] rounded-[18px] sm:w-full"
-              />
-            ))}
-          </div>
-        ) : null}
       </div>
     </section>
   );

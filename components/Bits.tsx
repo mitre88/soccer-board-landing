@@ -2,9 +2,13 @@ import { t, type Locale } from "@/content/site";
 import { resolveSlot, type SlotId } from "@/content/screens";
 import { ThemedPicture } from "./ThemedPicture";
 
-/** Eyebrow that marks the sections improved in 2.0. Never used on Formats. */
-export function NewChip({ locale }: { locale: Locale }) {
-  return <p className="t-chip w-fit">{t(locale).newChip}</p>;
+/**
+ * Eyebrow for the 2.0 sections: "New in 2.0", or "Rebuilt in 2.0" for a feature that already existed
+ * in 1.x (the AI coach). Never used on Formats, which 1.x already had.
+ */
+export function NewChip({ locale, rebuilt = false }: { locale: Locale; rebuilt?: boolean }) {
+  const d = t(locale);
+  return <p className="t-chip w-fit">{rebuilt ? d.rebuiltChip : d.newChip}</p>;
 }
 
 /** The AI availability disclosure, verbatim from the store copy. */
