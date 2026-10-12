@@ -92,7 +92,7 @@ const en = {
     },
     analyze: {
       title: "Analyze my setup",
-      body: "Get up to 3 concrete adjustments, shown right on the board. Apply each one with a single tap.",
+      body: "Get up to 3 concrete adjustments. Apply each one to the board with a single tap.",
       numeralLabel: "Up to 3 adjustments",
     },
     insights: {
@@ -265,7 +265,7 @@ const es: Dictionary = {
     },
     analyze: {
       title: "Analizar mi parado",
-      body: "Hasta 3 ajustes concretos, marcados directo en la pizarra. Aplica cada uno con un solo toque.",
+      body: "Hasta 3 ajustes concretos. Aplica cada uno en la pizarra con un solo toque.",
       numeralLabel: "Hasta 3 ajustes",
     },
     insights: {
