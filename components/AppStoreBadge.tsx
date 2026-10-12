@@ -1,8 +1,10 @@
 import { APP_STORE_URL, t, type Locale } from "@/content/site";
 
 // Official, unmodified "Download on the App Store" artwork (black by day, white by night).
-// Lazy by default: React preloads every eager <img>, and most badges sit in a collapsed menu, a
-// header slot hidden below 1440 px or the last section. Only the hero badge loads eagerly.
+// One <picture> per badge: the white artwork is a dark <source> (components/ThemeScript.tsx rewrites
+// its media when the visitor forces an appearance), so each appearance fetches one file, at the
+// priority this badge asks for. Lazy by default: most badges sit in a collapsed menu, a header slot
+// hidden below 1440 px or the last section. Only the hero badge loads eagerly.
 const RATIO = 119.66407 / 40;
 
 export function AppStoreBadge({
@@ -24,26 +26,23 @@ export function AppStoreBadge({
       href={APP_STORE_URL}
       className={`inline-flex shrink-0 rounded-[10px] transition-opacity duration-150 hover:opacity-85 ${className}`}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`/badges/app-store-${file}-black.svg`}
-        alt={alt}
-        width={width}
-        height={height}
-        className="only-light block"
-        loading={loading}
-        decoding="async"
-      />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`/badges/app-store-${file}-white.svg`}
-        alt={alt}
-        width={width}
-        height={height}
-        className="only-dark"
-        loading="lazy"
-        decoding="async"
-      />
+      <picture>
+        <source
+          media="(prefers-color-scheme: dark)"
+          srcSet={`/badges/app-store-${file}-white.svg`}
+          data-dark=""
+          suppressHydrationWarning
+        />
+        <img
+          src={`/badges/app-store-${file}-black.svg`}
+          alt={alt}
+          width={width}
+          height={height}
+          className="block"
+          loading={loading}
+          decoding="async"
+        />
+      </picture>
     </a>
   );
 }

@@ -422,7 +422,7 @@
     }
   }
 
-  /* Elements that exist in one appearance only (badge artwork, toggle glyphs). */
+  /* Elements that exist in one appearance only (the theme toggle glyphs). */
   .only-dark {
     display: none;
   }
