@@ -36,7 +36,7 @@ export const privacy: Record<Locale, LegalDoc> = {
             "The app does not collect personal data. There are no accounts and no servers behind the app.",
             "There is no tracking, no advertising and no analytics in the app.",
             "Your teams, boards and setups stay on your device.",
-            "The AI coach runs on your iPhone. Your plans and lineups never leave the device, and the coach works offline.",
+            "The AI coach runs on your device. Your plans and lineups never leave it, and the coach works offline.",
           ),
         ],
       },
@@ -52,7 +52,7 @@ export const privacy: Record<Locale, LegalDoc> = {
         heading: "The AI coach",
         blocks: [
           p(
-            "To build a lineup or analyze a setup, the coach reads the plan you choose with chips or type in your own words, together with the players on your board. This is processed on your iPhone: your plan, your lineup and the coach’s answer are not sent to us or to anyone else, and the coach works without an internet connection.",
+            "To build a lineup or analyze a setup, the coach reads the plan you choose with chips or type in your own words, together with the players on your board. This is processed on your device: your plan, your lineup and the coach’s answer are not sent to us or to anyone else, and the coach works without an internet connection.",
           ),
           p(
             "On devices or in languages where the on-device AI is not available, suggestions come from a rule-based engine that also runs on the device.",
@@ -131,7 +131,7 @@ export const privacy: Record<Locale, LegalDoc> = {
             "La app no recopila datos personales. No hay cuentas ni servidores detrás de la app.",
             "La app no tiene rastreo, publicidad ni analítica.",
             "Tus equipos, pizarras y esquemas se quedan en tu dispositivo.",
-            "El entrenador con IA corre en tu iPhone. Tus planes y alineaciones nunca salen del dispositivo y el entrenador funciona sin conexión.",
+            "El entrenador con IA corre en tu dispositivo. Tus planes y alineaciones nunca salen de él y el entrenador funciona sin conexión.",
           ),
         ],
       },
@@ -147,7 +147,7 @@ export const privacy: Record<Locale, LegalDoc> = {
         heading: "El entrenador con IA",
         blocks: [
           p(
-            "Para armar una alineación o analizar un parado, el entrenador lee el plan que eliges con las opciones rápidas o escribes con tus propias palabras, junto con los jugadores de tu pizarra. Todo se procesa en tu iPhone: tu plan, tu alineación y la respuesta del entrenador no se envían a nosotros ni a nadie más, y el entrenador funciona sin conexión a internet.",
+            "Para armar una alineación o analizar un parado, el entrenador lee el plan que eliges con las opciones rápidas o escribes con tus propias palabras, junto con los jugadores de tu pizarra. Todo se procesa en tu dispositivo: tu plan, tu alineación y la respuesta del entrenador no se envían a nosotros ni a nadie más, y el entrenador funciona sin conexión a internet.",
           ),
           p(
             "En dispositivos o idiomas donde la IA en el dispositivo no está disponible, las sugerencias vienen de un motor basado en reglas que también corre en el dispositivo.",
@@ -414,7 +414,7 @@ export const support: Record<Locale, SupportDoc> = {
       { q: "What do I need to use the app?", a: "iOS 26.4 or later." },
       {
         q: "Which devices get the on-device AI?",
-        a: "A compatible iPhone with on-device intelligence turned on and a supported language. On other devices and languages, you get rule-based suggestions.",
+        a: "A compatible iPhone or iPad, with on-device AI turned on in Settings and a supported language. Without it, the coach still works: the tactics engine still builds lineups and checks your setup, and the explanations and adjustments are rule-based and labeled that way.",
       },
       {
         q: "How do I build a lineup with the coach?",
@@ -458,7 +458,7 @@ export const support: Record<Locale, SupportDoc> = {
       { q: "¿Qué necesito para usar la app?", a: "iOS 26.4 o posterior." },
       {
         q: "¿En qué dispositivos funciona la IA?",
-        a: "En un iPhone compatible con la inteligencia en el dispositivo activada y un idioma compatible. En otros dispositivos e idiomas recibes sugerencias basadas en reglas.",
+        a: "En un iPhone o iPad compatible, con la IA en el dispositivo activada en Ajustes y un idioma compatible. Sin ella, el entrenador sigue funcionando: el motor táctico arma la alineación y revisa tu esquema, y las explicaciones y los ajustes se basan en reglas y así se indican.",
       },
       {
         q: "¿Cómo armo una alineación con el entrenador?",

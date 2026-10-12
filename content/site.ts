@@ -18,7 +18,7 @@ export const APP_STORE_REVIEW_URL = `${APP_STORE_URL}?action=write-review`;
 /** App Store seller of record (individual developer account). */
 export const SELLER = "Alejandro Hernandez Mitre";
 export const CONTACT_EMAIL = "vamosmexico2018.ahm@gmail.com";
-export const LEGAL_UPDATED_ISO = "2026-10-11";
+export const LEGAL_UPDATED_ISO = "2026-10-12";
 
 /** "/support" in English is "/es/support" in Spanish; "/" is "/es". */
 export function localePath(locale: Locale, path: string): string {
@@ -46,7 +46,7 @@ const en = {
     ogAlt: "SoccerBoard Tactics AI, AI Tactical Whiteboard: the app icon and name above a section of the 3D-style board.",
     privacyTitle: "Privacy Policy — SoccerBoard Tactics AI",
     privacyDescription:
-      "SoccerBoard Tactics AI does not collect personal data. Your teams and boards stay on your device, and the AI coach runs on your iPhone.",
+      "SoccerBoard Tactics AI does not collect personal data. Your teams and boards stay on your device, and the AI coach runs there too.",
     termsTitle: "Terms of Service — SoccerBoard Tactics AI",
     termsDescription:
       "The terms for using SoccerBoard Tactics AI, a one-time purchase on the App Store with no subscriptions and no in-app purchases.",
@@ -76,7 +76,7 @@ const en = {
   newChip: "New in 2.0",
   disclosure: {
     label: "AI availability:",
-    text: "the on-device AI needs a compatible iPhone with on-device intelligence turned on and a supported language. On other devices and languages, you get rule-based suggestions.",
+    text: "the on-device AI needs a compatible iPhone or iPad, with on-device AI turned on in Settings and a supported language. Without it, the coach still works: the tactics engine still builds lineups and checks your setup, and the explanations and adjustments are rule-based and labeled that way.",
   },
   hero: {
     badge: "Now on iPhone Duo",
@@ -177,13 +177,13 @@ const en = {
       { q: "What are the requirements?", a: "iOS 26.4 or later." },
       {
         q: "Which devices get the on-device AI?",
-        a: "A compatible iPhone with on-device intelligence turned on and a supported language. On other devices and languages, you get rule-based suggestions.",
+        a: "A compatible iPhone or iPad, with on-device AI turned on in Settings and a supported language. Without it, the coach still works: the tactics engine still builds lineups and checks your setup, and the explanations and adjustments are rule-based and labeled that way.",
       },
       {
         q: "Which languages does the AI coach support?",
         a: "The on-device AI needs a supported language. In other languages, you get rule-based suggestions. The {store} lists the app’s interface languages; the on-device AI may not support all of them.",
       },
-      { q: "Is the AI coach private?", a: "Yes. It runs on your iPhone, privately and offline." },
+      { q: "Is the AI coach private?", a: "Yes. It runs on your device, privately and offline." },
       {
         q: "Is it a subscription?",
         a: "No. Pay once: no subscriptions, no in-app purchases and no ads.",
@@ -204,7 +204,7 @@ const en = {
   },
   legal: {
     updatedLabel: "Last updated",
-    updatedDate: "October 11, 2026",
+    updatedDate: "October 12, 2026",
     contactLabel: "Email",
   },
 } as const;
@@ -220,7 +220,7 @@ const es: Dictionary = {
     ogAlt: "SoccerBoard Tactics AI, pizarra táctica con IA: el ícono y el nombre de la app sobre una parte de la pizarra con efecto 3D.",
     privacyTitle: "Aviso de privacidad — SoccerBoard Tactics AI",
     privacyDescription:
-      "SoccerBoard Tactics AI no recopila datos personales. Tus equipos y pizarras se quedan en tu dispositivo y el entrenador con IA corre en tu iPhone.",
+      "SoccerBoard Tactics AI no recopila datos personales. Tus equipos y pizarras se quedan en tu dispositivo y el entrenador con IA también corre ahí.",
     termsTitle: "Términos de servicio — SoccerBoard Tactics AI",
     termsDescription:
       "Los términos de uso de SoccerBoard Tactics AI, una compra única en el App Store sin suscripciones ni compras dentro de la app.",
@@ -250,7 +250,7 @@ const es: Dictionary = {
   newChip: "Nuevo en 2.0",
   disclosure: {
     label: "Disponibilidad de la IA:",
-    text: "necesita un iPhone compatible con la inteligencia en el dispositivo activada y un idioma compatible. En otros dispositivos e idiomas recibes sugerencias basadas en reglas.",
+    text: "necesita un iPhone o iPad compatible, con la IA en el dispositivo activada en Ajustes y un idioma compatible. Sin ella, el entrenador sigue funcionando: el motor táctico arma la alineación y revisa tu esquema, y las explicaciones y los ajustes se basan en reglas y así se indican.",
   },
   hero: {
     badge: "Ya disponible para iPhone Duo",
@@ -351,7 +351,7 @@ const es: Dictionary = {
       { q: "¿Qué requisitos tiene la app?", a: "iOS 26.4 o posterior." },
       {
         q: "¿En qué dispositivos funciona la IA?",
-        a: "En un iPhone compatible con la inteligencia en el dispositivo activada y un idioma compatible. En otros dispositivos e idiomas recibes sugerencias basadas en reglas.",
+        a: "En un iPhone o iPad compatible, con la IA en el dispositivo activada en Ajustes y un idioma compatible. Sin ella, el entrenador sigue funcionando: el motor táctico arma la alineación y revisa tu esquema, y las explicaciones y los ajustes se basan en reglas y así se indican.",
       },
       {
         q: "¿En qué idiomas funciona el entrenador con IA?",
@@ -359,7 +359,7 @@ const es: Dictionary = {
       },
       {
         q: "¿El entrenador con IA es privado?",
-        a: "Sí. Corre en tu iPhone, en privado y sin conexión.",
+        a: "Sí. Corre en tu dispositivo, en privado y sin conexión.",
       },
       {
         q: "¿Es una suscripción?",
@@ -381,7 +381,7 @@ const es: Dictionary = {
   },
   legal: {
     updatedLabel: "Última actualización",
-    updatedDate: "11 de octubre de 2026",
+    updatedDate: "12 de octubre de 2026",
     contactLabel: "Correo",
   },
 };
