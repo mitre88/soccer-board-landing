@@ -5,18 +5,31 @@ import { ThemedPicture } from "../ThemedPicture";
 
 type Figure = { key: string; shot: ResolvedScreen; caption: string };
 
-/** Real iPhone Duo captures for this section (the hero shows the pitch only, never these). */
+const isLandscape = (figure: Figure) => figure.shot.light.width > figure.shot.light.height;
+
+/** Real iPhone Duo captures for this section, inner display first (the hero shows the pitch only). */
 export function duoFigures(locale: Locale): Figure[] {
   const d = t(locale).duo;
   return [
-    { key: "closed", shot: resolveSlot("duoClosed", locale), caption: d.captionClosed },
     { key: "open", shot: resolveSlot("duoOpen", locale), caption: d.captionOpen },
+    { key: "closed", shot: resolveSlot("duoClosed", locale), caption: d.captionClosed },
     { key: "half", shot: resolveSlot("duoHalf", locale), caption: d.captionHalf },
   ].filter((figure): figure is Figure => figure.shot !== null);
 }
 
-function DuoFigure({ figure, sizes, width }: { figure: Figure; sizes: string; width: string }) {
-  const landscape = figure.shot.light.width > figure.shot.light.height;
+// Layout and sizes follow each capture's orientation, so every figure downloads the width its box
+// needs: a 2853 x 2007 inner-display capture fills the row, an outer-display portrait stays 300 px.
+const ROW_LANDSCAPE = "(min-width: 1200px) 860px, (min-width: 640px) 60vw, 92vw";
+const ROW_PORTRAIT = "(min-width: 640px) 300px, 80vw";
+const ROW_COLUMNS: Record<string, string> = {
+  "landscape portrait": "sm:grid-cols-[minmax(0,1fr)_auto]",
+  "portrait landscape": "sm:grid-cols-[auto_minmax(0,1fr)]",
+  "landscape landscape": "sm:grid-cols-2",
+  "portrait portrait": "sm:grid-cols-[auto_auto] sm:justify-start",
+};
+
+function DuoFigure({ figure, sizes }: { figure: Figure; sizes: string }) {
+  const landscape = isLandscape(figure);
   return (
     <figure className="flex flex-col">
       <ThemedPicture
@@ -24,7 +37,7 @@ function DuoFigure({ figure, sizes, width }: { figure: Figure; sizes: string; wi
         dark={figure.shot.dark}
         alt={figure.shot.alt}
         sizes={sizes}
-        className={`capture h-auto ${landscape ? "w-full rounded-[22px]" : `${width} rounded-[30px]`}`}
+        className={`capture h-auto ${landscape ? "w-full rounded-[22px]" : "w-[min(80vw,300px)] rounded-[30px]"}`}
       />
       <figcaption className="t-note mt-4 max-w-[34ch]">{figure.caption}</figcaption>
     </figure>
@@ -47,39 +60,44 @@ function DuoText({ locale }: { locale: Locale }) {
 
 /** Full section, used when at least one real iPhone Duo capture is available. */
 export function Duo({ locale, figures }: { locale: Locale; figures: Figure[] }) {
-  if (figures.length === 1) {
+  const [first, second, third] = figures;
+
+  // One portrait capture sits beside the copy; one landscape capture goes under it, capped at 800 px
+  // (a 34ch caption would otherwise size an auto column and shrink the capture to about 360 px).
+  if (!second) {
+    const landscape = isLandscape(first);
     return (
       <section id="duo" aria-labelledby="duo-title" className="py-16 md:py-24">
-        <div className="container-x grid items-center gap-12 md:grid-cols-[minmax(0,1fr)_auto] md:gap-16">
+        <div
+          className={`container-x grid gap-12 ${landscape ? "" : "items-center md:grid-cols-[minmax(0,1fr)_auto] md:gap-16"}`}
+        >
           <div className="max-w-[36rem]">
             <DuoText locale={locale} />
           </div>
-          <div className="justify-self-center md:justify-self-end">
-            <DuoFigure figure={figures[0]} sizes="(min-width: 768px) 360px, 80vw" width="w-[min(80vw,360px)]" />
+          <div className={landscape ? "max-w-[800px]" : "justify-self-center md:justify-self-end"}>
+            <DuoFigure figure={first} sizes={landscape ? "(min-width: 848px) 800px, 92vw" : ROW_PORTRAIT} />
           </div>
         </div>
       </section>
     );
   }
+
+  const pair = [first, second];
+  const columns = ROW_COLUMNS[pair.map((figure) => (isLandscape(figure) ? "landscape" : "portrait")).join(" ")];
   return (
     <section id="duo" aria-labelledby="duo-title" className="py-16 md:py-24">
       <div className="container-x">
         <div className="max-w-[36rem]">
           <DuoText locale={locale} />
         </div>
-        <div className="mt-12 grid items-start gap-10 sm:grid-cols-[auto_minmax(0,1fr)]">
-          {figures.slice(0, 2).map((figure) => (
-            <DuoFigure
-              key={figure.key}
-              figure={figure}
-              sizes="(min-width: 1200px) 640px, (min-width: 640px) 60vw, 92vw"
-              width="w-[min(80vw,300px)]"
-            />
+        <div className={`mt-12 grid items-start gap-10 ${columns}`}>
+          {pair.map((figure) => (
+            <DuoFigure key={figure.key} figure={figure} sizes={isLandscape(figure) ? ROW_LANDSCAPE : ROW_PORTRAIT} />
           ))}
         </div>
-        {figures[2] ? (
+        {third ? (
           <div className="mt-10 max-w-[720px]">
-            <DuoFigure figure={figures[2]} sizes="(min-width: 768px) 720px, 92vw" width="w-[min(80vw,300px)]" />
+            <DuoFigure figure={third} sizes={isLandscape(third) ? "(min-width: 768px) 720px, 92vw" : ROW_PORTRAIT} />
           </div>
         ) : null}
       </div>

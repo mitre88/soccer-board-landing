@@ -13,7 +13,8 @@ const nextConfig = {
   experimental: { globalNotFound: true },
   images: {
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [360, 480, 640, 768, 1080, 1280, 1600],
+    // 2048: the iPhone Duo desk capture renders 860 CSS px wide, 1720 px on 2x screens.
+    deviceSizes: [360, 480, 640, 768, 1080, 1280, 1600, 2048],
     imageSizes: [32, 64, 96, 128, 192, 256],
     qualities: [75, 85],
     // Capture URLs carry a content hash (content/screens.ts), so optimized copies can live 31 days.
