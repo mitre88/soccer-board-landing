@@ -24,6 +24,14 @@ export const SUBJECTS = {
       es: "Una parte de la pizarra vista desde arriba: tres fichas de jugador con volumen, luz y sombra, dos carreras dibujadas con flechas y el círculo central.",
     },
   },
+  /** A tighter band of the same pitch for the hero below 900 px (art direction, same <img> alt). */
+  pitchBand: {
+    names: ["hero-pitch-band"],
+    alt: {
+      en: "A section of the board seen from above: six player tokens with volume, light and shadow, two runs drawn as arrows and the centre circle.",
+      es: "Una parte de la pizarra vista desde arriba: seis fichas de jugador con volumen, luz y sombra, dos carreras dibujadas con flechas y el círculo central.",
+    },
+  },
   duoOpenDesk: {
     names: ["duo-open-coach-desk", "duo-open-desk"],
     alt: {
@@ -101,6 +109,7 @@ export type SubjectId = keyof typeof SUBJECTS;
 export const SLOTS = {
   // The pitch owns the hero. Full interface captures belong to their own sections.
   hero: ["pitch"],
+  heroNarrow: ["pitchBand"],
   coachBuild: ["coachBuild"],
   coachAnalyze: ["coachAnalyze"],
   coachInsight: ["coachInsight"],

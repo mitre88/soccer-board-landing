@@ -5,11 +5,16 @@ import { Disclosure } from "../Bits";
 import { ThemedPicture } from "../ThemedPicture";
 
 // The pitch owns the hero. On wide screens it sits beside the copy; below 900 px it comes right
-// after the lead, so the first screen shows the board before the download button.
+// after the lead, so the first screen shows the board before the download button. A portrait
+// full-pitch capture gives way to a tighter band of the same pitch below 900 px (art direction), so
+// the App Store badge stays near the first screen on phones.
+const NARROW = "(max-width: 899px)";
+
 export function Hero({ locale }: { locale: Locale }) {
   const d = t(locale).hero;
   const shot = resolveSlot("hero", locale);
   const landscape = shot ? shot.light.width > shot.light.height : false;
+  const band = shot && !landscape ? resolveSlot("heroNarrow", locale) : null;
 
   return (
     <section id="top" aria-labelledby="hero-title" className="floodlit">
@@ -36,10 +41,17 @@ export function Hero({ locale }: { locale: Locale }) {
                   ? "(min-width: 1218px) 560px, (min-width: 900px) 46vw, (min-width: 652px) 600px, 92vw"
                   : "(min-width: 900px) 400px, 76vw"
               }
+              narrow={
+                band
+                  ? { light: band.light, dark: band.dark, media: NARROW, sizes: "(min-width: 652px) 600px, 92vw" }
+                  : undefined
+              }
               className={
                 landscape
                   ? "capture h-auto w-full max-w-[600px] rounded-[12px] min-[900px]:w-[min(46vw,560px)]"
-                  : "capture mx-auto h-auto w-[min(76vw,340px)] rounded-[14px] min-[900px]:w-[400px]"
+                  : band
+                    ? "capture h-auto w-full max-w-[600px] rounded-[12px] min-[900px]:w-[400px] min-[900px]:max-w-none min-[900px]:rounded-[14px]"
+                    : "capture mx-auto h-auto w-[min(76vw,340px)] rounded-[14px] min-[900px]:w-[400px]"
               }
             />
           </div>
