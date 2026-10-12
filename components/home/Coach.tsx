@@ -6,17 +6,18 @@ import { ThemedPicture } from "../ThemedPicture";
 
 const CAPTURE_SLOTS: SlotId[] = ["coachBuild", "coachAnalyze", "coachInsight"];
 
-// Two or three captures form a row right under the lead, each at most 420 px: about the size the
-// panel has on a 6.9-inch iPhone, so its text reads like the page text. One capture keeps the side
-// column from 1200 px.
+// Two or three captures form a row right under the lead, on the same columns as the cards below
+// (the lineup above Build my lineup, the analysis above Analyze my setup). Each stays at most 420 px:
+// about the size the panel has on a 6.9-inch iPhone, so its text reads like the page text. One
+// capture keeps the side column from 1200 px.
 const ROW = {
   2: {
-    columns: "sm:grid-cols-[repeat(2,minmax(0,420px))]",
-    sizes: "(min-width: 912px) 420px, (min-width: 640px) 46vw, (min-width: 457px) 420px, 92vw",
+    columns: "md:grid-cols-2 md:gap-4",
+    sizes: "(min-width: 912px) 420px, (min-width: 768px) 46vw, (min-width: 457px) 420px, 92vw",
   },
   3: {
-    columns: "sm:grid-cols-[repeat(3,minmax(0,380px))]",
-    sizes: "(min-width: 1236px) 380px, (min-width: 640px) 30vw, (min-width: 413px) 380px, 92vw",
+    columns: "md:grid-cols-3 md:gap-4",
+    sizes: "(min-width: 1310px) 420px, (min-width: 768px) 30vw, (min-width: 457px) 420px, 92vw",
   },
 } as const;
 
