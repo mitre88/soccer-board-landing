@@ -90,7 +90,7 @@ const en = {
     lead: "Tell the coach your plan and see it on the board.",
     build: {
       title: "Build my lineup",
-      body: "Pick the plan with chips (“Defend lead,” “Protect left,” “High press”) or type it in your own words. The AI understands the plan, picks the best formation, assigns the players by position, explains why, and applies it to the board with an animation.",
+      body: "Pick your plan with chips (“Defend lead,” “Protect left,” “High press”) or describe the match in your own words. The tactics engine picks the formation that fits your plan and places each player by position; the on-device AI reads what you typed and explains why. Tap Apply to board and your players move into place.",
     },
     analyze: {
       title: "Analyze my setup",
@@ -99,7 +99,7 @@ const en = {
     },
     insights: {
       title: "Instant insights",
-      body: "About width, gaps between lines and flank overloads.",
+      body: "From the tactics engine: width, gaps between lines and flank overloads.",
     },
     private: {
       title: "Private, on your iPhone",
@@ -109,7 +109,7 @@ const en = {
     steps: [
       "Pick your team and format.",
       "Tell the coach your plan with chips or in your own words.",
-      "Review the lineup on the board and fine-tune it.",
+      "Tap Apply to board, then drag players to fine-tune the lineup.",
     ],
   },
   board: {
@@ -264,7 +264,7 @@ const es: Dictionary = {
     lead: "Cuéntale tu plan al entrenador con IA y míralo en la pizarra.",
     build: {
       title: "Arma tu alineación con IA",
-      body: "Elige tu plan con las opciones rápidas o escríbelo con tus propias palabras. La IA entiende el plan, elige la mejor formación, acomoda a los jugadores por posición, te explica por qué y lo aplica en la pizarra con una animación.",
+      body: "Elige tu plan con las opciones rápidas (“Defender ventaja”, “Proteger izquierda”, “Presión alta”) o describe el partido con tus propias palabras. El motor táctico elige la formación que mejor encaja con tu plan y acomoda a cada jugador por posición; la IA en el dispositivo entiende lo que escribiste y te explica por qué. Toca Aplicar en la pizarra y tus jugadores se acomodan.",
     },
     analyze: {
       title: "Analiza y mejora tu parado",
@@ -273,7 +273,7 @@ const es: Dictionary = {
     },
     insights: {
       title: "Observaciones al instante",
-      body: "Sobre el ancho, los huecos entre líneas y las sobrecargas por banda.",
+      body: "Del motor táctico: el ancho, los huecos entre líneas y las sobrecargas por banda.",
     },
     private: {
       title: "Privado, en tu iPhone",
@@ -283,7 +283,7 @@ const es: Dictionary = {
     steps: [
       "Elige tu equipo y el formato.",
       "Cuéntale tu plan al entrenador con opciones rápidas o con tus propias palabras.",
-      "Revisa la alineación en la pizarra y ajústala.",
+      "Toca Aplicar en la pizarra y ajusta la alineación arrastrando a los jugadores.",
     ],
   },
   board: {
