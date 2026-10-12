@@ -147,7 +147,10 @@ const en = {
     futsal: "Futsal",
   },
   whatsNew: {
-    title: "What’s new in 2.0",
+    /** Shown beside the big 2.0 numeral, which carries the version on screen. */
+    title: "What’s new",
+    /** Read by screen readers only, since the numeral is decorative. */
+    titleSr: " in 2.0",
     lead: "Requires iOS 26.4 or later.",
     items: [
       {
@@ -327,7 +330,8 @@ const es: Dictionary = {
     futsal: "Futsal",
   },
   whatsNew: {
-    title: "Novedades de la versión 2.0",
+    title: "Novedades",
+    titleSr: " de la versión 2.0",
     lead: "Requiere iOS 26.4 o posterior.",
     items: [
       {

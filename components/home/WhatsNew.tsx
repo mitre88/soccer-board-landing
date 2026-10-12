@@ -13,6 +13,7 @@ export function WhatsNew({ locale }: { locale: Locale }) {
           <div>
             <h2 id="whats-new-title" className="t-h2">
               {w.title}
+              <span className="sr-only">{w.titleSr}</span>
             </h2>
             <p className="t-lead mt-3">{w.lead}</p>
             <ul role="list" className="mt-8 space-y-4">
