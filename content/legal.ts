@@ -405,7 +405,7 @@ export const support: Record<Locale, SupportDoc> = {
       },
       {
         q: "How do I analyze my setup?",
-        a: "With your players on the board, open the **AI Coach** tab and tap **Analyze my setup**. You get up to 3 adjustments, numbered on the board and in the list. Tap **Apply** on the ones you want.",
+        a: "With your players on the board, open the **AI Coach** tab, choose **Analysis** and tap **Analyze my setup**. You get up to 3 numbered adjustments in the list. Tap **Apply** on the ones you want and the change is applied to the board.",
       },
       {
         q: "How do I remove the field photo?",
@@ -449,7 +449,7 @@ export const support: Record<Locale, SupportDoc> = {
       },
       {
         q: "¿Cómo analizo mi parado?",
-        a: "Con tus jugadores en la pizarra, abre la pestaña **Entrenador IA** y toca el botón para analizar tu parado. Recibes hasta 3 ajustes, numerados en la pizarra y en la lista. Aplica los que quieras con un toque.",
+        a: "Con tus jugadores en la pizarra, abre la pestaña **Entrenador IA**, elige el modo de análisis y toca el botón para analizar tu parado. Recibes hasta 3 ajustes numerados en la lista. Aplica los que quieras con un toque y el cambio se refleja en la pizarra.",
       },
       {
         q: "¿Cómo quito la foto de la cancha?",
