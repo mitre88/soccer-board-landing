@@ -20,8 +20,8 @@ export const SUBJECTS = {
   pitch: {
     names: ["hero-pitch", "pitch"],
     alt: {
-      en: "A section of the board seen from above: three player tokens with volume, light and shadow, two runs drawn as arrows, and the centre circle.",
-      es: "Una parte de la pizarra vista desde arriba: tres fichas de jugador con volumen, luz y sombra, dos carreras dibujadas con flechas y el círculo central.",
+      en: "The board seen from above: player tokens with volume, light and shadow, two runs drawn as arrows and the centre circle.",
+      es: "La pizarra vista desde arriba: fichas de jugador con volumen, luz y sombra, dos carreras dibujadas con flechas y el círculo central.",
     },
   },
   /** A tighter band of the same pitch for the hero below 900 px (art direction, same <img> alt). */
@@ -35,15 +35,15 @@ export const SUBJECTS = {
   duoOpenDesk: {
     names: ["duo-open-coach-desk", "duo-open-desk"],
     alt: {
-      en: "The inner display of iPhone Duo, open flat: the board with a lineup applied, and the coach panel beside it showing that result.",
-      es: "La pantalla interior del iPhone Duo, abierto por completo: la pizarra con una alineación aplicada y, al lado, el panel del entrenador con ese resultado.",
+      en: "The inner display of iPhone Duo, open flat: the board with both teams, two drawn runs and a red zone, and beside it the coach panel with a suggested 5-3-2, its explanation and the Apply to board button.",
+      es: "La pantalla interior del iPhone Duo, abierto por completo: la pizarra con ambos equipos, dos carreras dibujadas y una zona roja y, al lado, el panel del entrenador con un 5-3-2 sugerido, su explicación y el botón Aplicar en la pizarra.",
     },
   },
   duoClosedBoard: {
     names: ["duo-closed-board"],
     alt: {
-      en: "The outer display of iPhone Duo: a compact board with both teams, drawing tools on the left and the app’s tabs on the right.",
-      es: "La pantalla exterior del iPhone Duo: una pizarra compacta con ambos equipos, las herramientas de dibujo a la izquierda y las pestañas de la app a la derecha.",
+      en: "The outer display of iPhone Duo: a compact board seen through the tilted Broadcast View camera, with both teams, drawing tools on the left and the app’s tabs on the right.",
+      es: "La pantalla exterior del iPhone Duo: una pizarra compacta vista con la cámara inclinada Vista de transmisión, con ambos equipos, las herramientas de dibujo a la izquierda y las pestañas de la app a la derecha.",
     },
   },
   duoHalfDesk: {
@@ -56,15 +56,15 @@ export const SUBJECTS = {
   coachBuild: {
     names: ["iphone-ai-lineup", "iphone-coach-build"],
     alt: {
-      en: "The coach’s suggested lineup: a 5-3-2 with a mini board of the formation, 3 players on the bench, and the explanation written by the on-device AI.",
-      es: "La alineación sugerida por el entrenador: un 5-3-2 con una minipizarra de la formación, 3 jugadores en la banca y la explicación que escribe la IA en el dispositivo.",
+      en: "The coach’s suggested lineup: a 5-3-2 with a mini board of the formation, 3 players on the bench, the explanation written by the on-device AI, five facts about the shape and the Apply to board button.",
+      es: "La alineación sugerida por el entrenador: un 5-3-2 con una minipizarra de la formación, 3 jugadores en la banca, la explicación que escribe la IA en el dispositivo, cinco datos del acomodo y el botón Aplicar en la pizarra.",
     },
   },
   coachAnalyze: {
     names: ["iphone-analysis", "iphone-coach-analyze"],
     alt: {
-      en: "Setup analysis on iPhone: up to three numbered adjustment cards, each with an Apply button.",
-      es: "Análisis del parado en iPhone: hasta tres ajustes numerados, cada uno con un botón para aplicarlo.",
+      en: "Setup analysis: two numbered adjustments, Drop deeper and Push up, each naming the player and what changes, marked On-device AI, with an Apply button.",
+      es: "Análisis del parado: dos ajustes numerados, Retrasar y Adelantar, cada uno con el jugador y lo que cambia, marcados como IA en el dispositivo y con un botón Aplicar.",
     },
   },
   coachInsight: {
@@ -77,11 +77,11 @@ export const SUBJECTS = {
   board3d: {
     names: ["iphone-3d-board", "iphone-board-3d"],
     alt: {
-      en: "The 3D-style board on iPhone: player tokens with volume, light and shadow on a pitch with depth.",
-      es: "La pizarra con efecto 3D en iPhone: fichas de jugador con volumen, luz y sombra sobre una cancha con profundidad.",
+      en: "The 3D-style board through the tilted Broadcast View camera: both teams with volume, light and shadow on a pitch in perspective, two drawn runs and a red zone.",
+      es: "La pizarra con efecto 3D vista con la cámara inclinada Vista de transmisión: ambos equipos con volumen, luz y sombra sobre una cancha en perspectiva, dos carreras dibujadas y una zona roja.",
     },
   },
-  /** Crop of an outer-display board capture: one team's goal end. */
+  /** Older close-up slot, used only while no iphone-3d-board capture exists. */
   boardCloseup: {
     names: ["board-closeup"],
     alt: {
