@@ -89,7 +89,7 @@ export function Duo({ locale, figures }: { locale: Locale; figures: Figure[] }) 
 
 /**
  * Text-only section, used while no iPhone Duo capture exists. It keeps the feature's own band and
- * heading (more weight than Performance) and lists what each display does.
+ * heading and lists what each display does.
  */
 export function DuoTextSection({ locale }: { locale: Locale }) {
   const d = t(locale).duo;

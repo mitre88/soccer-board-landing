@@ -15,7 +15,6 @@ import { Duo, DuoTextSection, duoFigures } from "./Duo";
 import { Faq } from "./Faq";
 import { Formats } from "./Formats";
 import { Hero } from "./Hero";
-import { Performance } from "./Performance";
 import { WhatsNew } from "./WhatsNew";
 
 // No offers, ratings or reviews: the price is set per storefront in App Store Connect and can change
@@ -50,7 +49,6 @@ export function HomePage({ locale }: { locale: Locale }) {
       <Coach locale={locale} />
       <Board locale={locale} />
       {figures.length ? <Duo locale={locale} figures={figures} /> : <DuoTextSection locale={locale} />}
-      <Performance locale={locale} />
       <Formats locale={locale} />
       <WhatsNew locale={locale} />
       <Faq locale={locale} />

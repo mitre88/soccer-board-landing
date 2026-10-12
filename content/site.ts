@@ -128,9 +128,9 @@ const en = {
     ],
     close: "Fold or unfold and keep working.",
   },
-  performance: {
-    title: "Smoother and lighter",
-    body: "Faster drawing and dragging, zoom and pan, and lower memory use.",
+  drawing: {
+    title: "Draw, drag and zoom",
+    body: "Draw arrows, curves and zones, drag players, pinch to zoom, and undo or redo drawings and player moves.",
   },
   formats: {
     title: "Built for every squad",
@@ -160,9 +160,9 @@ const en = {
         rest: ": coach desk on the inner display, compact board on the outer one.",
       },
       {
-        href: "#performance",
-        label: "Smoother and lighter",
-        rest: ": faster drawing and dragging, zoom and pan, less memory.",
+        href: "#drawing",
+        label: "Rebuilt board",
+        rest: ": draw, drag players and pinch to zoom, with undo and redo for drawings and player moves.",
       },
       {
         href: "#formats",
@@ -302,9 +302,9 @@ const es: Dictionary = {
     ],
     close: "Pliega o abre tu iPhone Duo y sigue trabajando.",
   },
-  performance: {
-    title: "Más fluida y ligera",
-    body: "Dibujo y arrastre más rápidos, zoom y desplazamiento, y menor uso de memoria.",
+  drawing: {
+    title: "Dibuja, arrastra y haz zoom",
+    body: "Dibuja flechas, curvas y zonas, arrastra jugadores, haz zoom con dos dedos y deshaz o rehaz trazos y movimientos.",
   },
   formats: {
     title: "Para cada equipo",
@@ -334,9 +334,9 @@ const es: Dictionary = {
         rest: ": mesa del entrenador en la pantalla interior, pizarra compacta en la exterior.",
       },
       {
-        href: "#performance",
-        label: "Más fluida y ligera",
-        rest: ": dibujo y arrastre más rápidos, zoom y desplazamiento, menos memoria.",
+        href: "#drawing",
+        label: "Pizarra renovada",
+        rest: ": dibuja, arrastra jugadores y haz zoom con dos dedos, con deshacer y rehacer para trazos y movimientos.",
       },
       {
         href: "#formats",
