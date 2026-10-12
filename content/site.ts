@@ -67,7 +67,7 @@ const en = {
   },
   nav: {
     coach: "AI coach",
-    board: "3D board",
+    board: "3D-style board",
     duo: "iPhone Duo",
     whatsNew: "What’s new",
     faq: "FAQ",
@@ -113,8 +113,8 @@ const en = {
     ],
   },
   board: {
-    title: "Your board, now in 3D",
-    body: "A 3D-style board: player tokens with volume, light and shadow, on a pitch with depth.",
+    title: "A 3D-style tactical board",
+    body: "Player tokens with volume, light and shadow, on a pitch with depth.",
   },
   duo: {
     title: "A coach desk for iPhone Duo",
@@ -241,7 +241,7 @@ const es: Dictionary = {
   },
   nav: {
     coach: "Entrenador con IA",
-    board: "Pizarra 3D",
+    board: "Pizarra con efecto 3D",
     duo: "iPhone Duo",
     whatsNew: "Novedades",
     faq: "Preguntas frecuentes",
@@ -287,8 +287,8 @@ const es: Dictionary = {
     ],
   },
   board: {
-    title: "Tu pizarra, ahora en 3D",
-    body: "Pizarra con efecto 3D: fichas de jugador con volumen, luz y sombra, sobre una cancha con profundidad.",
+    title: "Pizarra con efecto 3D",
+    body: "Fichas de jugador con volumen, luz y sombra, sobre una cancha con profundidad.",
   },
   duo: {
     title: "Mesa del entrenador para iPhone Duo",
